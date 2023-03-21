@@ -68,7 +68,7 @@ BODY-MAKE
 | nickname           | string  | null: false              |
 | introduction       | string  |                          |
 | status_id          | integer | null: false              |
-| target_date        | integer |                          |
+| target_date        | date    |                          |
 | height             | integer |                          |
 | target_weight      | integer |                          |
 | target_fat         | integer |                          |
