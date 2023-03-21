@@ -53,6 +53,7 @@ BODY-MAKE
 ・ライブラリ（ダイエット用語）検索機能  
 
 ## 画面遷移図
+[画面遷移図](https://raw.githubusercontent.com/HinoShun/BODY-MAKE/c285bc742a649b1c8221cb4bcd0d818771eb4e27/state_diagram.drawio.svg)
 
 ## ER図
 
