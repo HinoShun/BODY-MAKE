@@ -53,10 +53,11 @@ BODY-MAKE
 ・ライブラリ（ダイエット用語）検索機能  
 
 ## 画面遷移図
-[画面遷移図](https://raw.githubusercontent.com/HinoShun/BODY-MAKE/c285bc742a649b1c8221cb4bcd0d818771eb4e27/screen_diagram.drawio.svg)
+[画面遷移図](https://raw.githubusercontent.com/HinoShun/BODY-MAKE/27877335983928620a5072f630542f04551c60be/screen_diagram.drawio.svg)
 
 
 ## ER図
+[ER図](https://raw.githubusercontent.com/HinoShun/BODY-MAKE/27877335983928620a5072f630542f04551c60be/ER.drawio.svg)
 
 
 ## テーブル設計
