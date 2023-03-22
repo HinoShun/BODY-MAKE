@@ -4,12 +4,28 @@
     <title>BODYMake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <div class="header_left">
+      <div class="title">
+        <%= link_to image_tag("logo_muscle.png", class: :logo), root_path %>
+        <h1 class="title_name">BODY-MAKE APP</h1>
+      </div>
+    </div>
+    <div class="header_right">
+    </div>
+  </header>
+
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+
+  </footer>
+
 </html>
