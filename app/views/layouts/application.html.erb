@@ -24,6 +24,12 @@
     <%= yield %>
   </body>
 
+  <%= link_to(new_user_registration_path, class: 'sign_up_btn') do %>
+    <span class='sign_up_btn_text'>新規登録</span>
+    <%= image_tag 'btn.png' , size: '185x50' ,class: "sign_up_btn_icon" %>
+  <% end %>
+
+
   <footer>
 
   </footer>
