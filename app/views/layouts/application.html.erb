@@ -20,6 +20,7 @@
       <% if user_signed_in? %> 
         <%= link_to(destroy_user_session_path, method: :delete, class: 'AAA') do %>
           <span class='btn_text'>ログアウト</span>
+          <%= image_tag 'test.png' , size: '185x50' ,class: "btn_icon" %>
         <% end %>
       <% end %>
     </div>
