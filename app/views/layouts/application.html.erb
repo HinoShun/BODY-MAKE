@@ -17,17 +17,60 @@
       </div>
     </div>
     <div class="header_right">
+      <% if user_signed_in? %> 
+        <%= link_to(destroy_user_session_path, method: :delete, class: 'AAA') do %>
+          <span class='btn_text'>ログアウト</span>
+        <% end %>
+      <% end %>
     </div>
   </header>
 
   <body>
-    <%= yield %>
+    <div class="main">
+      <div class="main_">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 
-  <%= link_to(new_user_registration_path, class: 'sign_up_btn') do %>
-    <span class='sign_up_btn_text'>新規登録</span>
-    <%= image_tag 'btn.png' , size: '185x50' ,class: "sign_up_btn_icon" %>
+  <% if user_signed_in? %>
+
+    <%= link_to(root_path, class: 'up_btn') do %>
+      <span class='btn_text'>マイページ</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <% end %>
+
+    <%= link_to(root_path, class: 'right_btn') do %>
+      <span class='btn_text'>つぶやく</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <% end %>
+
+    <%= link_to(root_path, class: 'left_btn') do %>
+      <span class='btn_text'>データ入力</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <% end %>
+
+    <%= link_to(root_path, class: 'right_btn') do %>
+      <span class='btn_text'>つぶやく</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <% end %>
+
+  <% else %>
+
+    <%= link_to(new_user_registration_path, class: 'left_btn') do %>
+      <span class='btn_text'>新規登録</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <% end %>
+
+    <%= link_to(new_user_session_path, class: 'right_btn') do %>
+      <span class='btn_text'>ログイン</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <% end %>
+
   <% end %>
+    
+
+
 
 
   <footer>

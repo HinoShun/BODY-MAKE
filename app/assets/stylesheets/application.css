@@ -24,7 +24,23 @@
   box-sizing: border-box;
 }
 
-.sign_up_btn {
+.main{
+  height: 1500px;
+  width: 100vw;
+  background-image: url('fitness.PNG');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow-y: scroll;
+  overflow: hidden;
+}
+
+.main_{
+  background-color: rgba(249, 251, 249, 0.8);
+  width: 100vw;
+  height: 100%;
+}
+
+.left_btn {
   width: 120px;
   background: black;
   text-align: center;
@@ -35,7 +51,29 @@
   padding: 15px;
 }
 
-.sign_up_btn_text {
+.right_btn {
+  width: 120px;
+  background: black;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 169px;
+  position: fixed;
+  padding: 15px;
+}
+
+.up_btn {
+  width: 120px;
+  background: black;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 157px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+.btn_text {
   color: #fff;
   display: block;
   font-size: 18px;
@@ -43,11 +81,9 @@
   margin-bottom: 5px;
 }
 
-.sign_up_btn_icon {
+.btn_icon {
   width: 60%;
 }
-
-
 
 /*** ヘッダー装飾 ***/
 
