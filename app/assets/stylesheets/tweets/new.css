@@ -1,0 +1,12 @@
+.tweet_input_field{
+  width: 460px;
+  margin-top: 2px;
+  height: 300px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  white-space: normal; 
+}

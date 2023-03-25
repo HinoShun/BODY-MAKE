@@ -7,9 +7,9 @@
   <div class="form">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-
+    
       <div class="field">
-        <label class="flabel-text">メールアドレス</label>
+        <label class="label-text">メールアドレス</label>
         <%= f.email_field :email, placeholder:"ご登録のメールアドレス", class: :input_field, autofocus: true, autocomplete: "email" %>
       </div>
 
