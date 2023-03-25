@@ -10,17 +10,17 @@
   </head>
 
   <header>
-    <div class="header_left">
+    <div class="header-left">
       <div class="title">
         <%= link_to image_tag("logo_muscle.png", class: :logo), root_path %>
         <h1 class="title_name">BODY-MAKE APP</h1>
       </div>
     </div>
-    <div class="header_right">
+    <div class="header-right">
       <% if user_signed_in? %> 
-        <%= link_to(destroy_user_session_path, method: :delete, class: 'AAA') do %>
-          <span class='btn_text'>ログアウト</span>
-          <%= image_tag 'test.png' , size: '185x50' ,class: "btn_icon" %>
+        <%= link_to(destroy_user_session_path, method: :delete, class: 'header-right-btn') do %>
+          <span class='btn-text'>ログアウト</span>
+          <%= image_tag 'test.png' , size: '185x50' ,class: "btn-icon" %>
         <% end %>
       <% end %>
     </div>
@@ -36,45 +36,39 @@
 
   <% if user_signed_in? %>
 
-    <%= link_to(root_path, class: 'up_btn') do %>
-      <span class='btn_text'>マイページ</span>
-      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <%= link_to(root_path, class: 'up-btn') do %>
+      <span class='btn-text'>マイページ</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
-    <%= link_to(root_path, class: 'right_btn') do %>
-      <span class='btn_text'>つぶやく</span>
-      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <%= link_to(root_path, class: 'right-btn') do %>
+      <span class='btn-text'>データ入力</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
-    <%= link_to(root_path, class: 'left_btn') do %>
-      <span class='btn_text'>データ入力</span>
-      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
-    <% end %>
-
-    <%= link_to(new_tweet_path, class: 'right_btn') do %>
-      <span class='btn_text'>つぶやく</span>
-      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <%= link_to(new_tweet_path, class: 'left-btn') do %>
+      <span class='btn-text'>つぶやく</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
   <% else %>
 
-    <%= link_to(new_user_registration_path, class: 'left_btn') do %>
-      <span class='btn_text'>新規登録</span>
-      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <%= link_to(new_user_registration_path, class: 'left-btn') do %>
+      <span class='btn-text'>新規登録</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
-    <%= link_to(new_user_session_path, class: 'right_btn') do %>
-      <span class='btn_text'>ログイン</span>
-      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn_icon" %>
+    <%= link_to(new_user_session_path, class: 'right-btn') do %>
+      <span class='btn-text'>ログイン</span>
+      <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
   <% end %>
-    
 
   <footer>
-    <div class="footer_area">
-      <div class="footer_text">
-        <p>&copy; 2023 Hino Shumpei. All Rights Reserved.</p>
+    <div class="foote-area">
+      <div class="footer-text">
+        <p>&copy; 2023 Hino Shumpei.</p>
       </div>
     </div>
   </footer>
