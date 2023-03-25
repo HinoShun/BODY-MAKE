@@ -1,4 +1,42 @@
 .tweets{
-  height: 100vh;
-  width: 100vw;
+
+}
+
+.tweet{
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.tweet-upper{
+  display: flex;
+}
+
+.tweet-tweet{
+  margin: 10px 30px 10px 0;
+  height: 300px;
+  width: 400px;
+  text-align: right;
+  background-color: aqua;
+}
+
+.tweet-image{
+  margin-bottom: 10px;
+}
+
+.tweet_image{
+  height: 300px;
+  width: 400px;
+  object-fit: contain;
+  background-color: gray;
+  border-radius: 3px;
+}
+
+.reactions{
+  margin: auto 10px;
+}
+
+.tweet-user-menu{
+  margin: auto 10px;
 }

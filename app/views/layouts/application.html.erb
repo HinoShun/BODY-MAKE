@@ -17,12 +17,12 @@
       </div>
     </div>
     <div class="header-right">
-      <% if user_signed_in? %> 
-        <%= link_to(destroy_user_session_path, method: :delete, class: 'header-right-btn') do %>
-          <span class='btn-text'>ログアウト</span>
-          <%= image_tag 'test.png' , size: '185x50' ,class: "btn-icon" %>
+        <% if user_signed_in? %> 
+          <%= link_to(destroy_user_session_path, method: :delete) do %>
+            <span class='btn-text'>ログアウト</span>
+            <%#= image_tag 'test.png' ,class: "logo" %>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
   </header>
 
@@ -66,7 +66,7 @@
   <% end %>
 
   <footer>
-    <div class="foote-area">
+    <div class="footer-area">
       <div class="footer-text">
         <p>&copy; 2023 Hino Shumpei.</p>
       </div>

@@ -1,4 +1,6 @@
-.tweet-input-field{
+/* form装飾 ****************************************************/
+
+.tweet_input_field{
   width: 460px;
   margin-top: 2px;
   height: 300px;
