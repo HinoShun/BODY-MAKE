@@ -51,7 +51,7 @@
   background: black;
   text-align: center;
   border-radius: 4%;
-  bottom: 32px;
+  bottom: 97px;
   right: 32px;
   position: fixed;
   padding: 15px;
@@ -62,7 +62,7 @@
   background: black;
   text-align: center;
   border-radius: 4%;
-  bottom: 32px;
+  bottom: 97px;
   right: 169px;
   position: fixed;
   padding: 15px;
@@ -73,7 +73,7 @@
   background: black;
   text-align: center;
   border-radius: 4%;
-  bottom: 157px;
+  bottom: 222px;
   right: 32px;
   position: fixed;
   padding: 15px;
@@ -120,6 +120,7 @@ header{
   height: 60px;
   width: 60px;
 }
+/*** footer装飾 ***/
 
 footer{
   height: 80px;
@@ -127,6 +128,14 @@ footer{
   background-color: black;
 }
 
+.footer_area{
+  padding: 30px 40px 0 0;
+}
+
+.footer_text{
+  color: #ccc;
+  text-align: end;
+}
 
 /*** form装飾 ***/
 
