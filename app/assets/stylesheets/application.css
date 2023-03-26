@@ -87,13 +87,18 @@
 .btn-text,a {
   color: #fff;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
   margin-bottom: 5px;
 }
 
 .btn-icon {
   width: 60%;
+}
+
+.btn-icon_ {
+  width: 60%;
+  background-color: #fff;
 }
 
 /* ヘッダー装飾 ****************************************************/
