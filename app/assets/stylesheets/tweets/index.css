@@ -1,28 +1,34 @@
 .tweets{
-
+  background-color: bisque;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .tweet{
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  display: flex;
-  justify-content: center;
+  height: auto;
+  width: 450px;
+  margin: 20px 30px;
+  border: 1px gray solid;
+  padding: 10px;
 }
 
 .tweet-upper{
   display: flex;
 }
 
+.tweet-user{
+  font-weight: bold;
+}
+
 .tweet-tweet{
-  margin: 10px 30px 10px 0;
-  height: 300px;
-  width: 400px;
-  text-align: right;
   background-color: aqua;
+  overflow-wrap: break-word;
 }
 
 .tweet-image{
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .tweet_image{
@@ -34,9 +40,11 @@
 }
 
 .reactions{
-  margin: auto 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .tweet-user-menu{
-  margin: auto 10px;
+  display: flex;
+  justify-content: center;
 }

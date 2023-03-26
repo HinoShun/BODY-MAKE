@@ -1,39 +1,30 @@
 <div class="tweet">
 
-  <div class="tweet_">
-
     <div class="tweet-upper">
-
-      <div class="tweet-tweet">
-        <%= tweet.tweet %>
-      </div>
-
-      <% if tweet.image.present? %>
-        <div class="tweet-image">
-          <%= image_tag(tweet.image,class: :tweet_image) %>
-        </div>
-      <% end %>
-
-      <div class="reactions">
-        <div class="reaction-comment">コメントする</div>
-        <div class="reaction-great">GREAT!!</div>
-      </div>
-
-      <% if tweet.user == current_user %>
-        <div class="tweet-user-menu">
-          <div class="tweet-edit">編集</div>
-          <div class="tweet-delete">削除</div>
-        </div>
-      <% end %>
-
-    </div>
-
-    <div class="tweet-bottom">
       <div class="tweet-user">
         <%= tweet.user.nickname %>
       </div>
     </div>
 
-  </div>
+    <% if tweet.image.present? %>
+      <div class="tweet-image">
+        <%= image_tag(tweet.image,class: :tweet_image) %>
+      </div>
+    <% end %>
+
+    <div class="tweet-tweet">
+      <%= tweet.tweet %>
+    </div>
+
+    <div class="reactions">
+      <div class="reaction-comment">コメントする</div>
+      <div class="reaction-great">GREAT!!</div>
+    </div>
+
+    <% if tweet.user == current_user %>
+      <div class="tweet-user-menu">
+        <div class="tweet-delete">削除</div>
+      </div>
+    <% end %>
 
 </div>
