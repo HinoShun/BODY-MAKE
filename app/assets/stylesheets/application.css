@@ -27,9 +27,11 @@
 .main{
   height: auto;
   width: auto;
+  /**
   background-image: url('fitness.PNG');
   background-size: 100%;
   background-repeat: no-repeat;
+  **/
   overflow-y: auto;
   overflow: hidden;
 }
@@ -117,12 +119,16 @@ header{
   align-items: center;
   background-color: white;
   height: 50px;
-  width: 380px;
+  padding: 0 20px 0 10px;
 }
 
 .logo{
-  height: 60px;
-  width: 60px;
+  height: 45px;
+  width: 45px;
+}
+
+.title_name{
+  margin-left: 10px;
 }
 
 .header-right{
