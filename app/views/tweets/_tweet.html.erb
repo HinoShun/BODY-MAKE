@@ -9,6 +9,13 @@
           <%= tweet.user.nickname %>
         </div>
       </div>
+
+      <% if tweet.user == current_user %>
+      <div class="tweet-user-menu">
+        <%= image_tag("icon_delete.png", class: :icon_delete) %>
+      </div>
+      <% end %>
+
     </div>
 
     <% if tweet.image.present? %>
@@ -30,11 +37,7 @@
       <%= image_tag("icon_great.png", class: :icon_reaction) %>
     </div>
 
-    <% if tweet.user == current_user %>
-      <div class="tweet-user-menu">
-        <%= image_tag("icon_delete.png", class: :icon_delete) %>
-      </div>
-    <% end %>
+    
 
     </div>
 
