@@ -2,7 +2,12 @@
 
     <div class="tweet-upper">
       <div class="tweet-user">
-        <%= tweet.user.nickname %>
+        <div class="tweet-user-icon">
+          <%= image_tag("robo.jpeg", class: :icon_user) %>
+        </div>
+        <div class="tweet-user-name">
+          <%= tweet.user.nickname %>
+        </div>
       </div>
     </div>
 

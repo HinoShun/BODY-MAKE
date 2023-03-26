@@ -20,11 +20,18 @@
 .tweet-user{
   font-weight: bold;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.tweet-user-name{
+  margin-left: 15px;
 }
 
 .tweet-tweet{
   background-color: white;
   overflow-wrap: break-word;
+  padding: 7px;
   margin-bottom: 10px;
   border-radius: 5px;
 }
@@ -49,16 +56,26 @@
   margin-bottom: 10px;
 }
 
-.icon_reaction{
-  height: 70px;
-  width: 70px;
-  object-fit: contain;
-}
-
 .tweet-user-menu{
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+}
+
+/* icon装飾 ****************************************************/
+
+.icon_user{
+  height: 50px;
+  width: 50px;
+  border-radius:50%;
+  background-position: center;
+  object-fit: contain;
+}
+
+.icon_reaction{
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
 }
 
 .icon_delete{
