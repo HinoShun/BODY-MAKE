@@ -36,29 +36,29 @@
 
   <% if user_signed_in? %>
 
-    <%= link_to(root_path, class: 'up-btn') do %>
+    <%= link_to(root_path, class: 'top-btn') do %>
       <span class='btn-text'>マイページ</span>
       <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
-    <%= link_to(root_path, class: 'right-btn') do %>
+    <%= link_to(root_path, class: 'middle-btn') do %>
       <span class='btn-text'>データ入力</span>
       <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
-    <%= link_to(new_tweet_path, class: 'left-btn') do %>
+    <%= link_to(new_tweet_path, class: 'bottom-btn') do %>
       <span class='btn-text'>つぶやく</span>
       <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
   <% else %>
 
-    <%= link_to(new_user_registration_path, class: 'left-btn') do %>
+    <%= link_to(new_user_registration_path, class: 'middle-btn') do %>
       <span class='btn-text'>新規登録</span>
       <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
-    <%= link_to(new_user_session_path, class: 'right-btn') do %>
+    <%= link_to(new_user_session_path, class: 'bottom-btn') do %>
       <span class='btn-text'>ログイン</span>
       <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>

@@ -49,40 +49,42 @@
   padding-top: 50px;
 }
 
-.right-btn {
+.top-btn {
   width: 120px;
   background: black;
   text-align: center;
   border-radius: 4%;
-  bottom: 97px;
+  bottom: 320px;
   right: 32px;
   position: fixed;
   padding: 15px;
 }
 
-.left-btn {
-  width: 120px;
-  background: black;
-  text-align: center;
-  border-radius: 4%;
-  bottom: 97px;
-  right: 169px;
-  position: fixed;
-  padding: 15px;
-}
 
-.up-btn {
+.middle-btn {
   width: 120px;
   background: black;
   text-align: center;
   border-radius: 4%;
-  bottom: 222px;
+  bottom: 195px;
   right: 32px;
   position: fixed;
   padding: 15px;
 }
 
-.btn-text {
+.bottom-btn {
+  width: 120px;
+  background: black;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 70px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+
+.btn-text,a {
   color: #fff;
   display: block;
   font-size: 18px;
