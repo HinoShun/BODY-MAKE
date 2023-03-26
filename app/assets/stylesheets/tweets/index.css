@@ -1,5 +1,4 @@
 .tweets{
-  background-color: bisque;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -10,6 +9,7 @@
   width: 450px;
   margin: 20px 30px;
   border: 1px gray solid;
+  border-radius: 5px;
   padding: 10px;
 }
 
@@ -19,16 +19,20 @@
 
 .tweet-user{
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .tweet-tweet{
-  background-color: aqua;
+  background-color: white;
   overflow-wrap: break-word;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .tweet-image{
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .tweet_image{
@@ -41,10 +45,24 @@
 
 .reactions{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.icon_reaction{
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
 }
 
 .tweet-user-menu{
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
+}
+
+.icon_delete{
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
 }

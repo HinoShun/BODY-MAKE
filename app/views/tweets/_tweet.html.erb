@@ -7,24 +7,30 @@
     </div>
 
     <% if tweet.image.present? %>
-      <div class="tweet-image">
-        <%= image_tag(tweet.image,class: :tweet_image) %>
-      </div>
+
+    <div class="tweet-image">
+      <%= image_tag(tweet.image,class: :tweet_image) %>
+    </div>
+
     <% end %>
 
     <div class="tweet-tweet">
       <%= tweet.tweet %>
     </div>
 
+    <div class="tweet-bottom">
+
     <div class="reactions">
-      <div class="reaction-comment">コメントする</div>
-      <div class="reaction-great">GREAT!!</div>
+      <%= image_tag("icon_comment.png", class: :icon_reaction) %>
+      <%= image_tag("icon_great.png", class: :icon_reaction) %>
     </div>
 
     <% if tweet.user == current_user %>
       <div class="tweet-user-menu">
-        <div class="tweet-delete">削除</div>
+        <%= image_tag("icon_delete.png", class: :icon_delete) %>
       </div>
     <% end %>
+
+    </div>
 
 </div>
