@@ -1,27 +1,72 @@
 <div class="mypage">
 
+  <%= form_with model:@user, local: true do |f| %>
+
   <div class="intro">
 
     <div class="intro-left">
-
-
+      <%= image_tag 'robo.jpeg', class: "user-image" %>
     </div>
     
     <div class="intro-right">
+    
       <div class="intro-right-top">
-
+        <div class="intro-user-name">
+          <%= current_user.nickname %>
+        </div>
       </div>
+      
       <div class="intro-right-content">
+        test
       </div>
 
       <div class="intro-right-target">
+        <div class="taget-area">
+          <div class="intro-day-text">
+            ●目標●
+          </div>
+          <div class="intro-day">
+            2023/4/30
+          </div>
+        </div>
+        <div class="taget-area">
+          <div class="intro-bodydata">
+            67.5<span class="unit"> kg</span>
+          </div>
+          <div class="intro-bodydata">
+            12.5<span class="unit"> %</span>
+          </div>
+        </div>
+        <div class="taget-area">
+          <div class="intro-day-text">
+            ●現在●
+          </div>
+          <div class="intro-day">
+            2023/4/1
+          </div>
+        </div>
+        <div class="taget-area">
+          <div class="intro-bodydata">
+            69.0<span class="unit"> kg</span>
+          </div>
+          <div class="intro-bodydata">
+            15.0<span class="unit"> %</span>
+          </div>
+        </div>
       </div>
 
       <div class="intro-bottom">
+
+          <div class="icon-edit">
+            <%= link_to image_tag("icon_edit.png",class: :icon_edit), user_path(current_user.id) %>
+          </div>
+
       </div>
 
     </div>
-
+    
   </div>
+
+  <% end %>
 
 </div>
