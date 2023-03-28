@@ -285,6 +285,36 @@ footer{
   height: 80px;
   background-color: #ccc;
   border-radius: 0 0 5px 5px;
+  display: flex;
+}
+
+.taget-area{
+  height: 100%;
+  width: 25%;
+  padding-right: 15px;
+}
+
+.intro-day-text{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.intro-day{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.intro-bodydata{
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: solid 1px #272525;
+  border-radius: 3px;
+}
+
+.unit{
+  font-size: smaller;
 }
 
 .icon-edit{
