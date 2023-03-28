@@ -1,1 +1,52 @@
-<h1>マイページ</h1>
+<div class="mypage">
+
+  <div class="intro">
+
+    <div class="intro-left">
+      <%= image_tag 'robo.jpeg', class: "user-image" %>
+    </div>
+    
+    <div class="intro-right">
+      <div class="intro-right-top">
+        <div class="intro-user-name">
+          <%= @nickname %>
+        </div>
+      </div>
+      <div class="intro-right-content">
+        test
+      </div>
+
+      <div class="intro-right-target">
+        <div class="taget-area">
+          <div class="intro-day">
+          </div>
+        </div>
+        <div class="taget-area">
+          <div class="intro-bodydata">
+          </div>
+        </div>
+        <div class="taget-area">
+          <div class="intro-day">
+          </div>
+        </div>
+        <div class="taget-area">
+          <div class="intro-bodydata">
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-bottom">
+
+      <!-- 自分のページであれば公開・非公開の表示　-->
+
+        <div class="icon-edit">
+          <%= link_to image_tag("icon_edit.png",class: :icon_edit), user_path(current_user.id) %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
