@@ -283,7 +283,7 @@ footer{
 
 .intro-right-target{
   height: 80px;
-  background-color: #ccc;
+  background-color: #f9edf8;
   border-radius: 0 0 5px 5px;
   display: flex;
 }
@@ -306,11 +306,13 @@ footer{
 
 .intro-bodydata{
   width: 100%;
-  margin-top: 15px;
+  margin-top: 9px;
   text-align: center;
   font-weight: bold;
   border: solid 1px #272525;
   border-radius: 3px;
+  background-color: #fff;
+  padding: 3px 0;
 }
 
 .unit{
