@@ -7,11 +7,13 @@
     </div>
     
     <div class="intro-right">
+    
       <div class="intro-right-top">
         <div class="intro-user-name">
           <%= @user.nickname %>
         </div>
       </div>
+
       <div class="intro-right-content">
         test
       </div>
@@ -53,7 +55,6 @@
 
       <div class="intro-bottom">
 
-      
         <!-- 自分のページであれば公開・非公開の表示　-->
 
         <% if @user.id == current_user.id %>
@@ -65,7 +66,7 @@
       </div>
 
     </div>
-
+    
   </div>
 
 </div>
