@@ -17,11 +17,19 @@
       </div>
     </div>
     <div class="header-right">
-        <% if user_signed_in? %> 
-          <%= link_to(destroy_user_session_path, method: :delete) do %>
-            <span class='btn-text'>ログアウト</span>
-            <%#= image_tag 'test.png' ,class: "logo" %>
-          <% end %>
+        <% if user_signed_in? %>
+          <div class="login-user-icon">
+            <%= link_to image_tag("robo.jpeg",class: :icon_user), user_path(current_user.id) %>
+          </div>
+          <div class="login-user">
+            <div class="login-user-text">
+              <%= link_to current_user.nickname, user_path(current_user.id),class: :header_user_name %>
+            </div>
+            <div class="logout">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :logout_text %>
+                  <%#= image_tag 'test.png' ,class: "logo" %>
+            </div>
+          </div>
         <% end %>
     </div>
   </header>

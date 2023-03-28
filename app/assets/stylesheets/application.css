@@ -142,8 +142,28 @@ header{
 
 .header-right{
   display: flex;
-  align-items: center;
   margin-right: 30px;
+}
+
+.login-user-icon{
+  display: flex;
+  align-items: center;
+}
+
+.login-user{
+  margin: 25px 0 0 10px;
+}
+
+.header_user_name{
+  color: white;
+  font-size: 22px;
+}
+
+.logout_text{
+  color: white;
+  font-size: small;
+  display: block;
+  margin: 10px 0 0 20px;
 }
 
 /* footer装飾 ****************************************************/

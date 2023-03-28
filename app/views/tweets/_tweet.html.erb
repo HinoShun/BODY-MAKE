@@ -3,10 +3,10 @@
     <div class="tweet-upper">
       <div class="tweet-user">
         <div class="tweet-user-icon">
-          <%= image_tag("robo.jpeg", class: :icon_user) %>
+          <%= link_to image_tag("robo.jpeg",class: :icon_user), user_path(tweet.user.id) %>
         </div>
         <div class="tweet-user-name">
-          <%= tweet.user.nickname %>
+          <%= link_to tweet.user.nickname, user_path(tweet.user.id),class: :tweet_user_name %>
         </div>
       </div>
 
