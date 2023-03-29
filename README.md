@@ -89,7 +89,7 @@ BODY-MAKE(！！開発中！！)
 | encrypted_password | string  | null: false              |
 | nickname           | string  | null: false              |
 | introduction       | string  |                          |
-| status_id          | integer | null: false              |
+| purpose_id          | integer | null: false              |
 | target_date        | date    |                          |
 | height             | integer |                          |
 | target_weight      | integer |                          |

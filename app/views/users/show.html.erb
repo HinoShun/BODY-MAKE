@@ -19,7 +19,7 @@
       </div>
 
       <div class="intro-right-target">
-        <div class="taget-area">
+        <div class="target-area">
           <div class="intro-day-text">
             ●目標●
           </div>
@@ -27,7 +27,7 @@
             2023/4/30
           </div>
         </div>
-        <div class="taget-area">
+        <div class="target-area">
           <div class="intro-bodydata">
             67.5<span class="unit"> kg</span>
           </div>
@@ -35,7 +35,7 @@
             12.5<span class="unit"> %</span>
           </div>
         </div>
-        <div class="taget-area">
+        <div class="target-area">
           <div class="intro-day-text">
             ●現在●
           </div>
@@ -43,7 +43,7 @@
             2023/4/1
           </div>
         </div>
-        <div class="taget-area">
+        <div class="target-area">
           <div class="intro-bodydata">
             69.0<span class="unit"> kg</span>
           </div>
@@ -59,7 +59,7 @@
 
         <% if @user.id == current_user.id %>
           <div class="icon-edit">
-            <%= link_to image_tag("icon_edit.png",class: :icon_edit), user_path(current_user.id) %>
+            <%= link_to image_tag("icon_edit.png",class: :icon_edit), edit_user_path(current_user.id) %>
           </div>
         <% end %>
 

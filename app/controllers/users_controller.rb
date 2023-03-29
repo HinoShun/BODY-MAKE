@@ -6,25 +6,22 @@ class UsersController < ApplicationController
     #@tweets = user.tweets
   end
 
-  def new
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to user_path(user.id)
-    else
-      render action: :new
-    end
-  end
-
   def edit
+  end
+
+  def update
+    @user.update(user_params)
+    if @user.save
+      redirect_to user_path(@user.id)
+    else
+      render action: :edit
+    end
   end
 
   private
   
   def user_params
-    params.require(:user).permit(:image, :introduction, :status_id, :target_date, :target_weight, :target_fat)
+    params.require(:user).permit(:image, :introduction, :purpose_id, :target_date, :target_weight, :target_fat)
   end
 
   def set_user
