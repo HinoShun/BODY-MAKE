@@ -12,10 +12,8 @@
   margin: 10px 0 0 50px;
 }
 
-.input-target{
-  height: 100%;
-  width: 40%;
-  padding-right: 15px;
+.purpose-select{
+  text-align: end;
 }
 
 .user-input-field{
@@ -30,14 +28,57 @@
   white-space: normal; 
 }
 
-.user-date-field{
-  margin-top: 0;
+.input-right-target{
+  height: 80px;
+  background-color: #f9edf8;
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-target{
+  height: 100%;
+  width: 48%;
+}
+
+.input-day{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.input-date-field{
+  text-align: center;
+}
+
+.input-target-bodydata{
+  display: flex;
+  align-items: center;
+  margin-right: 35px;
+}
+
+.input-target-bodydata-text{
+  width: 60px;
+  font-size: 14px;
+  align-items: center;
+  text-align: end;
+}
+
+.input-bodydata{
+  width: 50%;
+  margin-top: 9px;
+  margin-left: 10px;
+  text-align: center;
+  font-weight: bold;
+  border: solid 1px #272525;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 3px 0;
 }
 
 .input-target-weight-fat{
   width: 50px;
   text-align: end;
   border: none;
-  background-color: #ccc;
+  background-color: #f0eded;
   font-weight: bold;
 }

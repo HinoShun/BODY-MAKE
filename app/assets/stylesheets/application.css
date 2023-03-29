@@ -287,11 +287,17 @@ footer{
   border-radius: 5px 5px 0 0;
   display: flex;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .intro-user-name{
   font-size: 22px;
   margin-left: 20px;
+}
+
+.intro-purpose{
+  margin-right: 20px;
 }
 
 .intro-right-content{

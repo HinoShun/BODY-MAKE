@@ -14,32 +14,40 @@
     
       <div class="intro-right-top">
         <div class="intro-user-name">
-          <%= current_user.nickname %>
+          <%= f.text_field :nickname, class: :edit_nickname, id:"" %>
         </div>
-        <%= f.collection_select(:purpose_id, Purpose.all, :id, :name, {}, {class:"status-select"}) %>
+        <div class="intro-purpose">
+          <%= f.collection_select(:purpose_id, Purpose.all, :id, :name, {}, {class:"purpose-select"}) %>
+        </div>
       </div>
       
       <div class="intro-right-content">
         <%= f.text_area :introduction, class:"user-input-field", id:"", placeholder:"（255文字まで)", maxlength:"255" %>
       </div>
 
-      <div class="intro-right-target">
+      <div class="input-right-target">
         <div class="input-target">
           <div class="intro-day-text">
             ●目標●
           </div>
-          <div class="intro-day">
-            <%= f.date_field :target_date, class:"user-date-field", id:"" %>
+          <div class="input-day">
+            <%= f.date_field :target_date, class:"input-date-field", id:"" %>
           </div>
         </div>
         <div class="input-target">
-          <div class="intro-bodydata">
-            <%= f.text_field :target_weight, class:"input-target-weight-fat", id:"", placeholder:"75.0" %>
-            <span class="unit"> kg</span>
+          <div class="input-target-bodydata">
+            <div class="input-target-bodydata-text">体重</div>
+            <div class="input-bodydata">
+              <%= f.text_field :target_weight, class:"input-target-weight-fat", id:"", placeholder:"75.0" %>
+              <span class="unit"> kg</span>
+            </div>
           </div>
-          <div class="intro-bodydata">
-            <%= f.text_field :target_fat, class:"input-target-weight-fat", id:"", placeholder:"25.0" %>
-            <span class="unit"> %</span>
+          <div class="input-target-bodydata">
+            <div class="input-target-bodydata-text">体脂肪率</div>
+            <div class="input-bodydata">
+              <%= f.text_field :target_fat, class:"input-target-weight-fat", id:"", placeholder:"25.0" %>
+              <span class="unit"> %</span>
+            </div>
           </div>
         </div>
       </div>
@@ -47,7 +55,7 @@
       <div class="intro-bottom">
 
           <div class="icon-edit">
-            <%= image_submit_tag("icon_edit.png",class: :icon_edit) %>
+            <%= image_submit_tag("icon_regi.png",class: :icon_edit) %>
           </div>
 
           <div class="sell-btn-contents">
