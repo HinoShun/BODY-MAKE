@@ -35,6 +35,19 @@
   </header>
 
   <body>
+    <%= link_to(root_path, class: 'root-btn') do %>
+      <span class='btn-text'>TOPへ</span>
+      <%= image_tag 'fitness.PNG' , size: '185x50' ,class: "btn-icon_" %>
+    <% end %>
+
+
+    <!-- 仮 -->
+    <%= link_to(new_user_path, class: 'test-btn') do %>
+      <span class='btn-text'>ユーザー<br>データ登録</span>
+      <%= image_tag 'fitness.PNG' , size: '185x50' ,class: "btn-icon_" %>
+    <% end %>
+    
+
     <div class="main">
       <div class="main_">
         <%= yield %>
