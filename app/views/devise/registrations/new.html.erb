@@ -11,7 +11,7 @@
 
       <div class="field">
         <label class="label-text">ユーザー名</label>
-        <%= f.text_field :nickname, placeholder:"例) トレーニー", class: :input_field %>
+        <%= f.text_field :nickname, placeholder:"例) たろう", class: :input_field %>
       </div>
 
       <div class="field">
@@ -27,6 +27,47 @@
       <div class="field">
         <label class="label-text">パスワード（確認）</label>
         <%= f.password_field :password_confirmation, placeholder:"同じパスワードを入力してください", class: :input_field, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">誕生年（※公開されません※）</label>
+        <%= f.text_field :year_of_birth, placeholder:"例) 1990  ※西暦4桁入力", class: :input_field %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">身長</label>
+        <%= f.text_field :height, placeholder:"例) 165", class: :input_field %>
+        <%= f.collection_select(:publish_height_id, PublishHeight.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">性別</label>
+        <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">目的</label>
+        <%= f.collection_select(:purpose_id, Purpose.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">活動レベル</label>
+        <%= f.collection_select(:activity_level_id, ActivityLevel.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">目標体重・体脂肪率</label>
+        <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">現在の体重・体脂肪質</label>
+        <%= f.collection_select(:publish_daily_id, PublishDaily.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">つぶやき</label>
+        <%= f.collection_select(:publish_tweet_id, PublishTweet.all, :id, :name, {}, {class:"purpose-select"}) %>
       </div>
 
       <div class="actions">

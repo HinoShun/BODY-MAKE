@@ -89,12 +89,14 @@ BODY-MAKE(！！開発中！！)
 | encrypted_password | string  | null: false              |
 | nickname           | string  | null: false              |
 | introduction       | string  |                          |
-| purpose_id          | integer | null: false              |
+| year_of_birth      | integer | null: false              |
+| sex_id             | integer | null: false              |
+| purpose_id         | integer | null: false              |
 | target_date        | date    |                          |
-| height             | integer |                          |
+| height             | integer | null: false              |
 | target_weight      | integer |                          |
 | target_fat         | integer |                          |
-| activity_level_id  | integer |                          |
+| activity_level_id  | integer | null: false              |
 | publish_target_id  | integer | null: false              |
 | publish_daily_id   | integer | null: false              |
 | publish_height_id  | integer | null: false              |
@@ -106,8 +108,13 @@ BODY-MAKE(！！開発中！！)
 - has_many :comments
 - has_many :reactions
 - has_one_attached :image
-
-
+- belongs_to :sex
+- belongs_to :purpose
+- belongs_to :activity_level
+- belongs_to :publish_target
+- belongs_to :publish_daily
+- belongs_to :publish_height
+- belongs_to :publish_tweet
 
 
 ### dailies テーブル
