@@ -46,3 +46,13 @@ User.create(
   publish_height_id: '3',
   publish_tweet_id: '3'
 )
+
+weight = 80
+fat = 30
+30.times do |i|
+  Daily.create(
+    weight: weight - (i * 0.2),
+    fat: fat - (i * 0.02),
+    user_id: 1
+  )
+end
