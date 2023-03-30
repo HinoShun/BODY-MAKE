@@ -52,6 +52,8 @@
         </div>
       </div>
 
+      <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"purpose-select"}) %>
+
       <div class="intro-bottom">
 
           <div class="icon-edit">
