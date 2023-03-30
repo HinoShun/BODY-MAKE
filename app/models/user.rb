@@ -7,6 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets
+  has_many :dailies
+
   belongs_to :sex
   belongs_to :purpose
   belongs_to :activity_level
