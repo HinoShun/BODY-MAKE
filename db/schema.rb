@@ -45,17 +45,19 @@ ActiveRecord::Schema.define(version: 2023_03_25_090747) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
+    t.integer "year_of_birth", null: false
+    t.integer "sex_id", null: false
     t.string "introduction"
-    t.integer "purpose_id"
+    t.integer "purpose_id", null: false
     t.date "target_date"
-    t.integer "height"
+    t.integer "height", null: false
     t.integer "target_weight"
     t.integer "target_fat"
-    t.integer "activity_level_id"
-    t.integer "publish_target_id"
-    t.integer "publish_daily_id"
-    t.integer "publish_height_id"
-    t.integer "publish_tweet_id"
+    t.integer "activity_level_id", null: false
+    t.integer "publish_target_id", null: false
+    t.integer "publish_daily_id", null: false
+    t.integer "publish_height_id", null: false
+    t.integer "publish_tweet_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
