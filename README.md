@@ -118,11 +118,12 @@ BODY-MAKE(！！開発中！！)
 
 
 ### dailies テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- |------------------------------- |
-| weight | integer    | null: false                    |
-| fat    | integer    | null: false                    |
-| user   | references | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- |------------------------------- |
+| input_day | date       | null: false                    |
+| weight    | integer    | null: false                    |
+| fat       | integer    | null: false                    |
+| user      | references | null: false, foreign_key: true |
 
 #### Association
 - belongs_to :user

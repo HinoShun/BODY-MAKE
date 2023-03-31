@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2023_03_30_093255) do
   end
 
   create_table "dailies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.date "input_day", null: false
     t.integer "weight", null: false
     t.integer "fat", null: false
     t.bigint "user_id", null: false

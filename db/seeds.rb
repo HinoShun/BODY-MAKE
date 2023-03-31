@@ -47,12 +47,17 @@ User.create(
   publish_tweet_id: '3'
 )
 
+require "date"
+
 weight = 80
 fat = 30
+day = Date.new(2023,2,28)
+
 30.times do |i|
   Daily.create(
-    weight: weight - (i * 0.2),
-    fat: fat - (i * 0.02),
+    input_day: day + i,
+    weight: weight - (i * 0.15),
+    fat: fat - (i * 0.2),
     user_id: 1
   )
 end
