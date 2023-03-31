@@ -29,11 +29,26 @@
       <div class="preview_area", id = "previews" ></div>
 
       <div class="actions">
-        <%= f.submit "つぶやく",class:"action-btn" %>
+        <%= f.submit "入力",class:"action-btn" %>
       </div>
 
     <% end %>
 
+    <div class="under_bar"></div>
+
   </div>
 
+
+
 </div>
+
+
+<div class="main-center">
+  <div class="main-center">
+  
+    <%= render partial: "dailies", collection: @dailies %>
+    
+
+  </div>
+  </div>
+

@@ -3,6 +3,7 @@ class DailiesController < ApplicationController
 
   def new
     @daily = Daily.new
+    @dailies = Daily.where(user_id: current_user)
   end
 
   def create
