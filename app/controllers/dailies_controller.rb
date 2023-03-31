@@ -4,6 +4,17 @@ class DailiesController < ApplicationController
   def new
     @daily = Daily.new
     @dailies = Daily.where(user_id: current_user)
+    
+    day = @dailies.pluck(:input_day)
+    weight = @dailies.pluck(:weight)
+    fat = @dailies.pluck(:fat)
+
+    @chart = LazyHighCharts::HighChart.new("graph") do |c|
+      c.title(text: "体重・体脂肪率")
+      c.xAxis(categories: day)
+      c.series(name: "A", data: weight)
+      c.series(name: "B", data: fat)
+    end
   end
 
   def create

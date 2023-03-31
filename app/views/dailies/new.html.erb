@@ -45,7 +45,10 @@
 
 <div class="main-center">
   <div class="main-center">
-  
+
+  <div class="chart">
+    <%= high_chart("chart", @chart) %>
+  </div>
     <%= render partial: "dailies", collection: @dailies %>
     
 
