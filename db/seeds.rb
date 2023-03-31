@@ -10,8 +10,7 @@
 User.create(
   nickname: 'TestUser1', 
   email: 'test1@com', 
-  password: 'test00', 
-  encrypted_password: 'test00', 
+  password: 'test00',
   introduction: 'ダイエット中',
   year_of_birth: '1980',
   sex_id: '2',
@@ -30,8 +29,7 @@ User.create(
 User.create(
   nickname: 'TestUser2', 
   email: 'test2@com', 
-  password: 'test00', 
-  encrypted_password: 'test00', 
+  password: 'test00',
   introduction: '増量中',
   year_of_birth: '1980',
   sex_id: '3',
