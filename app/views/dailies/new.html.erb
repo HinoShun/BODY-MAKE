@@ -54,6 +54,18 @@
       }
       ], min: 0, max: 100 %>
   </div>
+
+  <div class="chart", id="">
+    <%= line_chart [
+      { 
+        name: "体脂肪率",
+        data: @dailies.map { |record| record.slice(:input_day, :fat).values }
+      }
+      ], min: 0, max: 50 %>
+  </div>
+
+
+
     <%= render partial: "dailies", collection: @dailies %>
     
 
