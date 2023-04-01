@@ -46,8 +46,13 @@
 <div class="main-center">
   <div class="main-center">
 
-  <div class="chart">
-    <%= high_chart("chart", @chart) %>
+  <div class="chart", id="">
+    <%= line_chart [
+      { 
+        name: "体重",
+        data: @dailies.map { |record| record.slice(:input_day, :weight).values }
+      }
+      ], min: 0, max: 100 %>
   </div>
     <%= render partial: "dailies", collection: @dailies %>
     
