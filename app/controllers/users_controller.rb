@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @dailies = Daily.where(user_id: current_user)
+    @dailies_data = Daily.where(user_id: current_user).order(input_day: "DESC")
     set_after
     set_before
   end
@@ -59,5 +60,5 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
 end

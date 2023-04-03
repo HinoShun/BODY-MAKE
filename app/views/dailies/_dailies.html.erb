@@ -1,4 +1,21 @@
-<%= dailies.weight %><br>
-<% if dailies.image.present? %>
-<%#= image_tag(dailies.image, class: :tweet_image) %><br>
-<% end %>
+<div class="daily-data">
+
+  <div class="daily-data-weight">
+    ●入力日：<%= dailies.input_day %>
+  </div>
+  <div class="daily-data-weight">
+    ●体重：<%= dailies.weight %>kg
+  </div>
+  <div class="daily-data-fat">
+    ●体脂肪率：<%= dailies.fat %>%
+  </div>
+  
+  <div class="daily-data-image">
+    <% if dailies.image.present? %>
+      <%= image_tag(dailies.image, class: :daily_data_image) %>
+    <% else %>
+      <div class="daily_data_image"></div>
+    <% end %>
+  </div>
+  
+</div>

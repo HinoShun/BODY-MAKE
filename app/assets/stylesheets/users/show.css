@@ -1,6 +1,12 @@
 .user-data{
   display: flex;
   justify-content: center;
+  background-color: antiquewhite;
+}
+
+.user-data_{
+  width: 80%;
+  background-color:aquamarine;
 }
 
 .body-images{
@@ -9,4 +15,38 @@
 
 .charts{
   display: flex;
+}
+
+.daily-data-wrapper{
+  flex-wrap: wrap;
+  background-color: aqua;
+}
+
+.daily-data{
+  margin: 5px;
+  height: 240px;
+  width: 200px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: blue;
+  display: inline-block;
+}
+
+.daily-data-image{
+  background-color: brown;
+  width: 180px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.daily_data_image{
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: azure;
 }
