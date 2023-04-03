@@ -5,7 +5,7 @@
 <div class="main-center">
 
   <div class="form">
-    <%= form_with model: @daily, url: dailies_path, local: true do |f| %>
+    <%= form_with model: @daily, url: dailies_path, id: 'new_post', local: true do |f| %>
 
       <div class="field">
         <label class="label-text"></label>
@@ -23,10 +23,11 @@
       </div>
 
       <div class="field">
+      <div class="user-image-register", id = "previews" ></div>
         <%= f.file_field :image, placeholder: "画像" %>
       </div>
 
-      <div class="preview_area", id = "previews" ></div>
+      
 
       <div class="actions">
         <%= f.submit "入力",class:"action-btn" %>
