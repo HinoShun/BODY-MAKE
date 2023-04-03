@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('../preview_user')
 require('../preview_daily')
+require('../preview_tweet')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
