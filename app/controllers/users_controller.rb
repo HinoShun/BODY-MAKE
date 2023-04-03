@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user,            only: [:show, :edit, :update]
 
   def show
-    @daily = Daily.find(params[:id])
-    #@tweets = user.tweets
+    @dailies = Daily.where(user_id: current_user)
+    set_after
+    set_before
   end
 
   def edit
@@ -43,5 +44,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def set_before
+    @dailies.to_a.each do |daily|
+      if daily.image.present?
+        @after_image = daily
+      end
+    end
+  end
 
+  def set_after
+    @dailies.to_a.reverse.each do |daily|
+      if daily.image.present?
+        @before_image = daily
+      end
+    end
+  end
+  
 end
