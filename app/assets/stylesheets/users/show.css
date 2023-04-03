@@ -1,0 +1,12 @@
+.user-data{
+  display: flex;
+  justify-content: center;
+}
+
+.body-images{
+  display: flex;
+}
+
+.charts{
+  display: flex;
+}

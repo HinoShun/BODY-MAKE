@@ -1,40 +1,50 @@
+<div class="user-data">
+  <div class="user-data_">
 
-<div class="main-center">
-  <div class="main-center">
 
+    <div class="body-images", id="">
 
-    <div class="body_image", id="">
-      <div class="body_before">
+      <div class="body-before">
         <%= image_tag(@before_image.image, class: :tweet_image) %>
         <%= @before_image.input_day %>
       </div>
-      <div class="body_after">
+
+      <div class="body-after">
         <%= image_tag(@after_image.image, class: :tweet_image) %>
         <%= @after_image.input_day %>
       </div>
+
     </div>
 
 
+    <div class="charts">
 
-  <div class="chart", id="">
-    <%= line_chart [
-      { 
-        name: "体重",
-        data: @dailies.map { |record| record.slice(:input_day, :weight).values }
-      }
-      ], min: 0, max: 100 %>
-  </div>
+      <div class="chart", id="">
+        <%= line_chart [
+          { 
+            name: "体重",
+            data: @dailies.map { |record| record.slice(:input_day, :weight).values }
+          }
+          ], min: 0, max: 100 %>
+      </div>
 
-  <div class="chart", id="">
-    <%= line_chart [
-      { 
-        name: "体脂肪率",
-        data: @dailies.map { |record| record.slice(:input_day, :fat).values }
-      }
-      ], min: 0, max: 50 %>
-  </div>
+      <div class="chart", id="">
+        <%= line_chart [
+          { 
+            name: "体脂肪率",
+            data: @dailies.map { |record| record.slice(:input_day, :fat).values }
+          }
+        ], min: 0, max: 50 %>
+      </div>
 
-    <%= render partial: "dailies/dailies", collection: @dailies %>
+    </div>
+
+    <div class="daily-data">
+
+      <%= render partial: "dailies/dailies", collection: @dailies %>
     
+    </div>
+
   </div>
+  
 </div>
