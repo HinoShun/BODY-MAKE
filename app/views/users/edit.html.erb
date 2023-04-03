@@ -1,13 +1,13 @@
 <div class="mypage">
 
-  <%= form_with model:@user, local: true do |f| %>
+  <%= form_with model:@user, id: 'new_post', local: true do |f| %>
 
   <div class="intro">
 
     <div class="intro-left">
-      <div class="user-image-register">
+      <div class="user-image-register", id = "previews">
       </div>
-      <%= f.file_field :image, class: :user_image, id:"user-image" %>
+      <%= f.file_field :image, class: :user_image %>
     </div>
     
     <div class="intro-right">

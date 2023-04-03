@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :tweets
   has_many :dailies
+  has_one_attached :image
 
   belongs_to :sex
   belongs_to :purpose
