@@ -11,20 +11,24 @@
         <div class="body-image-text">
           BEFORE
         </div>
-        <%= image_tag(@before_image.image, class: :tweet_image) %>
-        <div class="body-image-inputday">
-          <%= @before_image.input_day %>
-        </div>
+        <% if @before_image.image.present? %>
+          <%= image_tag(@before_image.image, class: :tweet_image) %>
+          <div class="body-image-inputday">
+            <%= @before_image.input_day %>
+          </div>
+        <% end %>
       </div>
 
       <div class="body-image">
         <div class="body-image-text">
           AFTER
         </div>
-        <%= image_tag(@after_image.image, class: :tweet_image) %>
-        <div class="body-image-inputday">
-          <%= @after_image.input_day %>
-        </div>
+        <% if @after_image.image.present? %>
+          <%= image_tag(@after_image.image, class: :tweet_image) %>
+          <div class="body-image-inputday">
+            <%= @after_image.input_day %>
+          </div>
+        <% end %>
       </div>
 
     </div>

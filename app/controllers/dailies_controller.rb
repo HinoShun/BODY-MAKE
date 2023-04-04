@@ -18,6 +18,5 @@ class DailiesController < ApplicationController
   def daily_params
     params.require(:daily).permit(:image, :input_day, :weight, :fat).merge(user_id: current_user.id)
   end
-
-
+  
 end

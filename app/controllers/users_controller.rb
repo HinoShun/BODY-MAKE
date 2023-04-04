@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user,            only: [:show, :edit, :update]
 
   def show
-    @dailies = Daily.where(user_id: current_user).order(input_day: "DESC")
+    @dailies = Daily.where(user_id: params[:id]).order(input_day: "DESC")
     set_after
     set_before
   end
