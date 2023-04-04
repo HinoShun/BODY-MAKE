@@ -1,25 +1,64 @@
 .user-data{
   display: flex;
   justify-content: center;
-  background-color: antiquewhite;
 }
 
 .user-data_{
   width: 80%;
-  background-color:aquamarine;
 }
+
+.data-title{
+  margin-top: 60px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+/** daily-data　装飾 **/
 
 .body-images{
   display: flex;
+  justify-content: center;
 }
+
+.body-image{
+  margin: 20px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.body-image-text{
+  font-size: large;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.body-image-inputday{
+  margin: 10px 0;
+  text-align: center;
+}
+
+/** chart　装飾 **/
 
 .charts{
   display: flex;
+  justify-content: center;
 }
 
+.chart{
+  margin: 20px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+/** daily-data　装飾 **/
+
 .daily-data-wrapper{
+  margin-top: 20px;
   flex-wrap: wrap;
-  background-color: aqua;
 }
 
 .daily-data{
@@ -29,12 +68,10 @@
   padding: 5px;
   border: 1px solid gray;
   border-radius: 3px;
-  background-color: blue;
   display: inline-block;
 }
 
 .daily-data-image{
-  background-color: brown;
   width: 180px;
   height: 120px;
   display: flex;
@@ -48,5 +85,4 @@
   object-fit: contain;
   border: 1px solid gray;
   border-radius: 3px;
-  background-color: azure;
 }

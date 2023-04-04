@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user,            only: [:show, :edit, :update]
 
   def show
-    @dailies = Daily.where(user_id: current_user)
-    @dailies_data = Daily.where(user_id: current_user).order(input_day: "DESC")
+    @dailies = Daily.where(user_id: current_user).order(input_day: "DESC")
     set_after
     set_before
   end
@@ -46,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def set_before
-    @dailies.to_a.each do |daily|
+    @dailies.to_a.reverse.each do |daily|
       if daily.image.present?
         @after_image = daily
       end
@@ -54,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def set_after
-    @dailies.to_a.reverse.each do |daily|
+    @dailies.to_a.each do |daily|
       if daily.image.present?
         @before_image = daily
       end
