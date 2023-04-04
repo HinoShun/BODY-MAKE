@@ -1,12 +1,12 @@
 <div class="daily-data">
 
-  <div class="daily-data-weight">
+  <div class="daily-data-text">
     ●入力日：<%= dailies.input_day %>
   </div>
-  <div class="daily-data-weight">
+  <div class="daily-data-text">
     ●体重：<%= dailies.weight %>kg
   </div>
-  <div class="daily-data-fat">
+  <div class="daily-data-text">
     ●体脂肪率：<%= dailies.fat %>%
   </div>
   
@@ -17,5 +17,16 @@
       <div class="daily_data_image"></div>
     <% end %>
   </div>
+
+  <% if dailies.user == current_user %>
+    <div class="daily-bottom">
+      <div class="daily-bottom-btn">
+        <%= image_tag("icon_edit.png", class: :icon_daily) %>
+      </div>
+      <div class="daily-bottom-btn">
+        <%= image_tag("icon_delete2.png", class: :icon_daily) %>
+      </div>
+    </div>
+  <% end %>
   
 </div>

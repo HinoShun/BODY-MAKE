@@ -71,6 +71,12 @@
   display: inline-block;
 }
 
+.daily-data-text{
+  font-size: small;
+  line-height: 18px;
+  letter-spacing: 1.8px;
+}
+
 .daily-data-image{
   width: 180px;
   height: 120px;
@@ -85,4 +91,16 @@
   object-fit: contain;
   border: 1px solid gray;
   border-radius: 3px;
+}
+
+.daily-bottom{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon_daily{
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
 }
