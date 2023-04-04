@@ -1,5 +1,7 @@
 <div class="user-data">
   <div class="user-data_">
+
+  <% unless @user.publish_daily_id  == 3 %>
     
     <div class="data-title">
       体型の変化
@@ -68,6 +70,8 @@
       <%= render partial: "dailies/dailies", collection: @dailies %>
     
     </div>
+
+    <% end %>
 
   </div>
 
