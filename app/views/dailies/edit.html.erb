@@ -1,11 +1,11 @@
 <div class="main-center">
-  <h2>データ入力</h2>
+  <h2>データ編集</h2>
 </div>
 
 <div class="main-center">
 
   <div class="form">
-    <%= form_with model: @daily, url: dailies_path, id: 'new_post', local: true do |f| %>
+    <%= form_with model: @daily, url: daily_path(params[:id]), id: 'new_post', local: true do |f| %>
 
       <div class="field">
         <label class="label-text"></label>
@@ -30,7 +30,7 @@
       
 
       <div class="actions">
-        <%= f.submit "入力",class:"action-btn" %>
+        <%= f.submit "編集",class:"action-btn" %>
       </div>
 
     <% end %>

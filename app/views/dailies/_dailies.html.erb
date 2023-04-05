@@ -21,10 +21,10 @@
   <% if dailies.user == current_user %>
     <div class="daily-bottom">
       <div class="daily-bottom-btn">
-        <%= image_tag("icon_edit.png", class: :icon_daily) %>
+        <%= link_to image_tag("icon_edit.png",class: :icon_daily), edit_daily_path(dailies.id),method: :get %>
       </div>
       <div class="daily-bottom-btn">
-        <%= image_tag("icon_delete2.png", class: :icon_daily) %>
+        <%= link_to image_tag("icon_delete2.png",class: :icon_daily), daily_path(dailies.id),method: :delete %>
       </div>
     </div>
   <% end %>
