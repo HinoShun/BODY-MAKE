@@ -29,14 +29,14 @@
             
           </div>
           <div class="intro-day">
-          <% unless @user.publish_target_id  == 3 %>
+          <% if @user.publish_target_id  == 2 || @user.id == current_user.id %>
             <%= @user.target_date %>
           <% end %>
           </div>
         </div>
 
         <div class="target-area">
-          <% unless @user.publish_target_id  == 3 %>
+          <% if @user.publish_target_id  == 2 || @user.id == current_user.id %>
           <div class="intro-bodydata">
             <%= @user.target_weight.to_f %>
             <span class="unit"> kg</span>
