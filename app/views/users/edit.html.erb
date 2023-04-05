@@ -51,14 +51,24 @@
           </div>
         </div>
       </div>
+      
+      <div class="input-bottom">
 
-      <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"purpose-select"}) %>
-
-      <div class="intro-bottom">
+        <div class="select-publish-data">
+          <div class="select">
+            <p>目標値の公開</p>
+            <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"purpose-select"}) %>
+          </div>
+          <div class="select">
+            <p>日々のデータの公開</p>
+            <%= f.collection_select(:publish_daily_id, PublishDaily.all, :id, :name, {}, {class:"purpose-select"}) %>
+          </div>
+        </div>
 
         <div class="icon-edit">
           <%= image_submit_tag("icon_regi.png",class: :icon_edit) %>
         </div>
+        
 
       </div>
 

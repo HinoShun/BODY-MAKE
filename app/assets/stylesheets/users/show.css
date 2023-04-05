@@ -56,9 +56,13 @@
 
 /** daily-data　装飾 **/
 
+
+
 .daily-data-wrapper{
   margin-top: 20px;
   flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }
 
 .daily-data{
