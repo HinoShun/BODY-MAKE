@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     @dailies = Daily.where(user_id: params[:id]).order(input_day: "DESC")
     set_after
     set_before
+    @age = calculation_age
     @basal_metabolism = calculation_basal_metabolism
+    @coeff = colculation_coeff
     @diff_calorie =  diff_calorie
     @calorie_intake = calculation_calorie_intake
     @nutrients = calculation_nutrients
@@ -64,22 +66,56 @@ class UsersController < ApplicationController
     end
   end
 
-  def calculation_basal_metabolism
-    y = Date.today
-    year = y.year.to_i
-    age = year - @user.year_of_birth
-    latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
-    weight = latest_data[0][:weight]
-    @basal_metabolism = 13.397 * weight + 4.799 * @user.height - (5.677 * age) + 88.362
+  def calculation_age
+    year = Date.today.year.to_i
+    @age = year - @user.year_of_birth
   end
+
+  def calculation_basal_metabolism
+    latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
+    @weight = latest_data[0][:weight]
+    if @user.sex_id == 2
+      @basal_metabolism = (13.397 * @weight) + (4.799 * @user.height) - (5.677 * @age) + 88.362
+    elsif @user.sex_id == 3
+      @basal_metabolism = (9.247 * @weight) + (3.098 * @user.height) - (4.33 * @age) + 447.593
+    end
+  end
+
+  def colculation_coeff
+    if @user.activity_level_id == 4
+      @coeff = 1.4 if @age >= 75
+      @coeff = 1.45 if @age >= 65
+      @coeff = 1.5 if @age >= 18
+      @coeff = 1.55 if @age >= 15
+      @coeff = 1.4 if @age >= 1 
+    elsif @user.activity_level_id == 3
+      @coeff = 1.65 if @age >= 75
+      @coeff = 1.7 if @age >= 65
+      @coeff = 1.75 if @age >= 15
+      @coeff = 1.65 if @age >= 1 
+    elsif @user.activity_level_id == 2
+      @coeff = 1.95 if @age >= 65
+      @coeff = 2 if @age >= 18
+      @coeff = 1.95 if @age >= 15
+      @coeff = 1.85 if @age >= 1 
+    end
+  end
+
+  
 
   def diff_calorie
+    @calories_burned = @basal_metabolism * @coeff
+    @days = (@user.target_date - Date.current).to_i
+    @diff_weight = (@weight - @user.target_weight).abs
+    @diff_calorie =  @diff_weight * 7200 / @days
   end
 
-  def calculation_calorie_intake
+  def calculation_calorie_intake #目標摂取カロリー
+    @calorie_intake = @calories_burned - @diff_calorie
+    
   end
 
-  def calculation_nutrients
+  def calculation_nutrients #PFC
   end
 
 end

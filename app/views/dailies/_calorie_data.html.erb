@@ -1,11 +1,14 @@
 <div class="calorie-data">
-  <%= @basal_metabolism %>
+  基礎代謝<%= @basal_metabolism.round %>
 </div>
 <div class="calorie-data">
-  <%= @diff_calorie %>
+  消費カロリー/1日<%= @calories_burned.round %>
 </div>
 <div class="calorie-data">
-  <%= @calorie_intake %>
+  1日のカロリー収支<%= @diff_calorie.round %>
+</div>
+<div class="calorie-data">
+  目標摂取カロリー<%= @calorie_intake.round %>
 </div>
 <div class="calorie-data">
   <%= @nutrients %>
