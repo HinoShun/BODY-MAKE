@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @dailies = Daily.where(user_id: params[:id]).order(input_day: "DESC")
     set_after
     set_before
+    @basal_metabolism = calculation_basal_metabolism
+    @diff_calorie =  diff_calorie
+    @calorie_intake = calculation_calorie_intake
+    @nutrients = calculation_nutrients
   end
 
   def edit
@@ -58,6 +62,19 @@ class UsersController < ApplicationController
         @before_image = daily
       end
     end
+  end
+
+  def calculation_basal_metabolism
+    
+  end
+
+  def diff_calorie
+  end
+
+  def calculation_calorie_intake
+  end
+
+  def calculation_nutrients
   end
 
 end
