@@ -65,7 +65,12 @@ class UsersController < ApplicationController
   end
 
   def calculation_basal_metabolism
-    
+    y = Date.today
+    year = y.year.to_i
+    age = year - @user.year_of_birth
+    latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
+    weight = latest_data[0][:weight]
+    @basal_metabolism = 13.397 * weight + 4.799 * @user.height - (5.677 * age) + 88.362
   end
 
   def diff_calorie
