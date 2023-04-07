@@ -116,6 +116,19 @@ class UsersController < ApplicationController
   end
 
   def calculation_nutrients #PFC
-  end
+    if @user.purpose_id == 3 #減量
+      @protein_c = @calorie_intake * 0.3
+      @carbo_c = @calorie_intake * 0.6
+      @lipid_c = @calorie_intake * 0.1
+    else
+      @protein_c = @calorie_intake * 0.3
+      @carbo_c = @calorie_intake * 0.5
+      @lipid_c = @calorie_intake * 0.2
+    end
 
+    @protein_g = @protein_c / 4
+    @carbo_g = @carbo_c / 4
+    @lipid_g = @lipid_c / 9
+
+  end
 end
