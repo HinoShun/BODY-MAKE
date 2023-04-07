@@ -14,6 +14,45 @@
   font-weight: bold;
 }
 
+/** calorie-data　装飾 **/
+.calorie-data-main{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.calorie-data-title{
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  border-bottom: 1px solid gray;
+}
+
+.calorie-data-wrap{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.calorie-data-wrap_macro{
+  display: flex;
+  justify-content: space-between;
+}
+
+.calorie-data{
+  display: flex;
+  justify-content: end;
+  margin-left: 5px;
+}
+
+.deco_text{
+  font-size: small;
+  font-weight: lighter;
+  margin-left: 5px;
+  line-height: 20px;
+}
+
 /** daily-data　装飾 **/
 
 .body-images{
@@ -55,8 +94,6 @@
 }
 
 /** daily-data　装飾 **/
-
-
 
 .daily-data-wrapper{
   margin-top: 20px;

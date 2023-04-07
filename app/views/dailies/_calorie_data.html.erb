@@ -1,30 +1,93 @@
-<div class="calorie-data">
-  基礎代謝<%= @basal_metabolism.round %>
-</div>
-<div class="calorie-data">
-  消費カロリー/1日<%= @calories_burned.round %>
-</div>
-<div class="calorie-data">
-  1日のカロリー収支<%= @diff_calorie.round %>
-</div>
-<div class="calorie-data">
-  目標摂取カロリー<%= @calorie_intake.round %>
-</div>
-<div class="calorie-data">
-  タンパク質（kcal）<%= @protein_c.round %>
-</div>
-<div class="calorie-data">
-  タンパク質（g）<%= @protein_g.round %>
-</div>
-<div class="calorie-data">
-  炭水化物（kcal）<%= @carbo_c.round %>
-</div>
-<div class="calorie-data">
-  炭水化物（g）<%= @carbo_g.round %>
-</div>
-<div class="calorie-data">
-  脂質（kcal）<%= @lipid_c.round %>
-</div>
-<div class="calorie-data">
-  脂質（g）<%= @lipid_g.round %>
+<div class="calorie-data-main">
+
+  <div class="calorie-data-main-wrap">
+
+    <div class ="calorie-data-title">
+      あなたの消費カロリーと摂取カロリー
+    </div>
+
+    <div class="calorie-data-wrap">
+      <div class="calorie-data-text">
+        基礎代謝
+      </div>
+      <div class="calorie-data">
+        <%= @basal_metabolism.round %><p class="deco_text">kcal</p>
+      </div>
+    </div>
+
+    <div class="calorie-data-wrap">
+      <div class="calorie-data-text">
+        消費カロリー/1日
+      </div>
+      <div class="calorie-data">
+        <%= @calories_burned.round %><p class="deco_text">kcal</p>
+      </div>
+    </div>
+
+    <div class="calorie-data-wrap">
+      <div class="calorie-data-text">
+        1日のカロリー収支
+      </div>
+      <div class="calorie-data">
+        <%= @diff_calorie.round %><p class="deco_text">kcal</p>
+      </div>
+    </div>
+
+    <div class="calorie-data-wrap">
+      <div class="calorie-data-text">
+        目標摂取カロリー
+      </div>
+      <div class="calorie-data">
+        <%= @calorie_intake.round %><p class="deco_text">kcal</p>
+      </div>
+    </div>
+
+    <div class ="calorie-data-title">
+      マクロ栄養素のご提案
+    </div>
+
+    <div class="calorie-data-wrap">
+      <div class="calorie-data-text">
+        タンパク質
+      </div>
+      <div class="calorie-data-wrap_macro">
+        <div class="calorie-data">
+          <%= @protein_g.round %><p class="deco_text">g</p>
+        </div>
+        <div class="calorie-data">
+          <%= @protein_c.round %><p class="deco_text">kcal</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="calorie-data-wrap">
+      <div class="calorie-data-text">
+        炭水化物（kcal）
+      </div>
+      <div class="calorie-data-wrap_macro">
+        <div class="calorie-data">
+          <%= @carbo_g.round %><p class="deco_text">g</p>
+        </div>
+        <div class="calorie-data">
+          <%= @carbo_c.round %><p class="deco_text">kcal</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="calorie-data-wrap">
+      <div class="calorie-data-text">
+        脂質（kcal）
+      </div>
+      <div class="calorie-data-wrap_macro">
+        <div class="calorie-data">
+          <%= @lipid_g.round %><p class="deco_text">g</p>
+        </div>
+        <div class="calorie-data">
+          <%= @lipid_c.round %><p class="deco_text">kcal</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
