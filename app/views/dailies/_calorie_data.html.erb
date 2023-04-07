@@ -17,13 +17,14 @@
 
     <div class="calorie-data-wrap">
       <div class="calorie-data-text">
-        消費カロリー/1日
+        消費カロリー
       </div>
       <div class="calorie-data">
         <%= @calories_burned.round %><p class="deco_text">kcal</p>
       </div>
     </div>
 
+    <!--
     <div class="calorie-data-wrap">
       <div class="calorie-data-text">
         1日のカロリー収支
@@ -32,6 +33,7 @@
         <%= @diff_calorie.round %><p class="deco_text">kcal</p>
       </div>
     </div>
+    -->
 
     <div class="calorie-data-wrap">
       <div class="calorie-data-text">
@@ -40,7 +42,17 @@
       <div class="calorie-data">
         <%= @calorie_intake.round %><p class="deco_text">kcal</p>
       </div>
+     
     </div>
+
+     <% if @calorie_intake < @basal_metabolism %>
+        
+      <p class="caution">
+        摂取カロリーが基礎代謝を下回ると、<br>
+        健康を害する恐れがありますので、<br>
+        目標体重の見直し、目標日の見直しをおすすめします。
+      </p>    
+    <% end %>
 
     <div class ="calorie-data-title">
       マクロ栄養素のご提案
