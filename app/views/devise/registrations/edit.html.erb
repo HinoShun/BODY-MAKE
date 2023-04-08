@@ -1,43 +1,79 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="main-center">
+  <h2>会員登録</h2>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="main-center">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="form">
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="field">
+        <label class="label-text">ユーザー名</label>
+        <%= f.text_field :nickname, placeholder:"例) たろう", class: :input_field %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">メールアドレス</label>
+        <%= f.email_field :email, placeholder:"※メールが配信されることはありません", class: :input_field, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">パスワード</label>
+        <%= f.password_field :password, placeholder:"6文字以上英数字", class: :input_field, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">パスワード（確認）</label>
+        <%= f.password_field :password_confirmation, placeholder:"同じパスワードを入力してください", class: :input_field, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">誕生年（※公開されません※）</label>
+        <%= f.text_field :year_of_birth, placeholder:"例) 1990  ※西暦4桁入力", class: :input_field %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">身長</label>
+        <%= f.text_field :height, placeholder:"例) 165", class: :input_field %>
+        <%= f.collection_select(:publish_height_id, PublishHeight.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">性別</label>
+        <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">目的</label>
+        <%= f.collection_select(:purpose_id, Purpose.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">活動レベル</label>
+        <%= f.collection_select(:activity_level_id, ActivityLevel.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">目標体重・体脂肪率</label>
+        <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">現在の体重・体脂肪質</label>
+        <%= f.collection_select(:publish_daily_id, PublishDaily.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">つぶやき</label>
+        <%= f.collection_select(:publish_tweet_id, PublishTweet.all, :id, :name, {}, {class:"purpose-select"}) %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録",class:"action-btn" %>
+      </div>
+
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>
