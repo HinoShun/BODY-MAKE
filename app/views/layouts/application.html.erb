@@ -30,6 +30,14 @@
                   <%#= image_tag 'test.png' ,class: "logo" %>
             </div>
           </div>
+        <% else %>
+          <div class="header-right-encourage">
+            <p class="encourage">
+              <%= link_to "新規登録",new_user_registration_path,class: :encourage_text %>
+              ・
+              <%= link_to "ログイン",new_user_session_path,class: :encourage_text %>
+              してはじめよう！</p>
+          </div>
         <% end %>
     </div>
   </header>
@@ -38,6 +46,10 @@
     <%= link_to(root_path, class: 'root-btn') do %>
       <span class='btn-text'>TOPへ</span>
       <%= image_tag 'fitness.PNG' , size: '185x50' ,class: "btn-icon_" %>
+    <% end %>
+
+    <%= link_to(root_path, class: 'notice-btn') do %>
+      <span class='btn-text'>おしらせ</span>
     <% end %>
 
     <div class="main">
