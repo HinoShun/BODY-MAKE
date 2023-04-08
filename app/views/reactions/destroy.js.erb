@@ -1,0 +1,1 @@
+document.getElementById('reaction-btn<%= @tweet.id %>').innerHTML = "<%= j(render partial: 'reactions/reaction', locals: {tweet: @tweet}) %>"

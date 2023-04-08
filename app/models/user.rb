@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :tweets
   has_many :dailies
   has_one_attached :image
+  has_many :reactions
 
   belongs_to :sex
   belongs_to :purpose
@@ -20,6 +21,7 @@ class User < ApplicationRecord
 
   validates   :year_of_birth, presence: true, format: { with: /\A[0-9]{4}\z/ }
   validates   :height,        presence: true, numericality: { only_integer: true }
+  validates   :user_id, uniqueness: { scope: :tweet_id}
 
   with_options numericality: { other_than: 1 } do
     validates :sex_id
