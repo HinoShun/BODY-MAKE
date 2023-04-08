@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @dailies = Daily.where(user_id: params[:id]).order(input_day: "DESC")
     set_after
     set_before
+    set_now_weight_fat
     @age = calculation_age
     @basal_metabolism = calculation_basal_metabolism
     @coeff = colculation_coeff
@@ -42,13 +43,21 @@ class UsersController < ApplicationController
       :publish_target_id, 
       :publish_daily_id, 
       :publish_height_id, 
-      :publish_tweet_id
+      :publish_tweet_id,
     )
   end
 
   def set_user
     @user = User.find(params[:id])
   end
+
+  def set_now_weight_fat
+    latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
+    @now_date = latest_data[0][:input_day]
+    @now_weight = latest_data[0][:weight]
+    @now_fat = latest_data[0][:fat]
+  end
+
 
   def set_before
     @dailies.to_a.reverse.each do |daily|
@@ -101,12 +110,10 @@ class UsersController < ApplicationController
     end
   end
 
-  
-
   def diff_calorie
     @calories_burned = @basal_metabolism * @coeff
     @days = (@user.target_date - Date.current).to_i
-    @diff_weight = (@weight - @user.target_weight).abs
+    @diff_weight = (@weight - @user.target_weight)
     @diff_calorie =  @diff_weight * 7200 / @days
   end
 

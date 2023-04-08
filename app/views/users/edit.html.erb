@@ -54,21 +54,9 @@
       
       <div class="input-bottom">
 
-        <div class="select-publish-data">
-          <div class="select">
-            <p>目標値の公開</p>
-            <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"purpose-select"}) %>
+          <div class="icon-edit">
+            <%= image_submit_tag("icon_regi.png",class: :icon_edit) %>
           </div>
-          <div class="select">
-            <p>日々のデータの公開</p>
-            <%= f.collection_select(:publish_daily_id, PublishDaily.all, :id, :name, {}, {class:"purpose-select"}) %>
-          </div>
-        </div>
-
-        <div class="icon-edit">
-          <%= image_submit_tag("icon_regi.png",class: :icon_edit) %>
-        </div>
-        
 
       </div>
 
@@ -78,4 +66,80 @@
 
   <% end %>
 
+</div>
+
+
+<div class="main-center">
+
+  <div class="form">
+    <%= form_with model: @user, local: true do |f| %>
+
+      <div class="form-title">
+        ユーザーログイン情報
+      </div>
+
+      <div class="field">
+        <label class="label-text">ユーザー名</label>
+        <%= f.text_field :nickname, placeholder:"例) たろう", class: :input_field %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">メールアドレス</label>
+        <%= f.email_field :email, placeholder:"※メールが配信されることはありません", class: :input_field, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="form-title_">
+        BODY-MAKE サポート用データ
+      </div>
+
+      <div class="field">
+        <label class="label-text">誕生年</label>
+        <%= f.text_field :year_of_birth, placeholder:"例) 1990  ※西暦4桁入力", class: :input_field %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">身長</label>
+        <%= f.text_field :height, placeholder:"例) 165", class: :input_field %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">性別</label>
+        <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">目的</label>
+        <%= f.collection_select(:purpose_id, Purpose.all, :id, :name, {}, {class:"select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">活動レベル</label>
+        <%= f.collection_select(:activity_level_id, ActivityLevel.all, :id, :name, {}, {class:"select"}) %>
+      </div>
+
+      <div class="form-title_">
+        公開・非公開設定
+      </div>
+
+      <div class="field">
+        <label class="label-text">目標体重・体脂肪率</label>
+        <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">日々のデータ（体型変化・体組成推移）</label>
+        <%= f.collection_select(:publish_daily_id, PublishDaily.all, :id, :name, {}, {class:"select"}) %>
+      </div>
+
+      <div class="field">
+        <label class="label-text">つぶやき</label>
+        <%= f.collection_select(:publish_tweet_id, PublishTweet.all, :id, :name, {}, {class:"select"}) %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "変更する",class:"action-btn" %>
+      </div>
+
+    <% end %>
+  </div>
 </div>

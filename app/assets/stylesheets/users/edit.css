@@ -85,7 +85,7 @@
 
 .input-bottom{
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .select-publish-data{
