@@ -1,0 +1,29 @@
+<div class="tweet">
+
+    <div class="tweet-upper">
+      <div class="tweet-user">
+        <div class="tweet-user-icon">
+          <!-- あとでユーザー画像修正 -->
+          <%= link_to image_tag("robo.jpeg",class: :icon_user), user_path(comments.user.id) %>
+        </div>
+        <div class="tweet-user-name">
+          <%= link_to comments.user.nickname, user_path(comments.user.id),class: :tweet_user_name %>
+        </div>
+      </div>
+
+      <% if comments.user == current_user %>
+        <div class="tweet-user-menu">
+          <%= image_tag("icon_delete2.png", class: :icon_delete) %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="tweet-tweet">
+      <%= comments.comment %>
+    </div>
+
+    <div class="tweet-bottom">
+    </div>
+
+</div>

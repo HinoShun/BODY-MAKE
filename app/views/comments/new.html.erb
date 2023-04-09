@@ -1,19 +1,61 @@
+<div class="comments_main">
+<!--  tweetの表示 -->
 <div class="main-center">
-  <h2>コメントする</h2>
+  <div class="tweet">
+    <div class="tweet-upper">
+      <div class="tweet-user">
+        <div class="tweet-user-icon">
+          <%= link_to image_tag("robo.jpeg",class: :icon_user), user_path(@tweet.user.id) %>
+        </div>
+        <div class="tweet-user-name">
+          <%= link_to @tweet.user.nickname, user_path(@tweet.user.id),class: :tweet_user_name %>
+        </div>
+      </div>
+
+    </div>
+
+    <% if @tweet.image.present? %>
+    <div class="tweet-image">
+      <%= image_tag(@tweet.image,class: :tweet_image) %>
+    </div>
+    <% end %>
+
+    <div class="tweet-tweet">
+      <%= @tweet.tweet %>
+    </div>
+
+    <div class="tweet-bottom">
+
+      <div class="reactions-comment">
+        <%= link_to image_tag("icon_comment.png", class: :icon_reaction),new_tweet_comment_path(@tweet.id)  %>
+        <%= @tweet.comments.count %>
+      </div>
+      <div class="reactions-like", id="reaction-btn<%= @tweet.id %>">      
+        <%= render partial: "reactions/reaction", locals: { tweet: @tweet } %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="main-center">
+<!--  コメントの表示 -->
+<div class="comments">
+  <%= render partial: "comments", collection: @comments  %>
+</div>
+</div>
+
+<!--  コメント投稿フォーム -->
+<div class="comment-form">
 
   <div class="form">
     <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
 
-      <div class="field">
+      <div class="field-comment">
         <label class="label-text"></label>
-        <%= f.text_area :comment, placeholder:"最大255文字", class: :tweet_input_field %>
+        <%= f.text_area :comment, placeholder:"最大255文字", class: :comment_input_field %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "コメントする",class:"action-btn" %>
+      <div class="actions-comment">
+        <%= f.submit "コメント",class:"action-btn-comment" %>
       </div>
 
     <% end %>
