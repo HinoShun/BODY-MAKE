@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :dailies
   has_one_attached :image
   has_many :reactions
+  has_many :comments
 
   belongs_to :sex
   belongs_to :purpose

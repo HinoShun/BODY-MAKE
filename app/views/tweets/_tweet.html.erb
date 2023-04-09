@@ -33,7 +33,7 @@
     <div class="tweet-bottom">
 
       <div class="reactions-comment">
-        <%= image_tag("icon_comment.png", class: :icon_reaction) %>
+        <%= link_to image_tag("icon_comment.png", class: :icon_reaction),new_tweet_comment_path(tweet.id)  %>
       </div>
       <div class="reactions-like", id="reaction-btn<%= tweet.id %>">      
         <%= render partial: "reactions/reaction", locals: { tweet: tweet } %>
