@@ -29,7 +29,6 @@ class User < ApplicationRecord
     validates :activity_level_id
     validates :publish_target_id
     validates :publish_daily_id
-    validates :publish_height_id
     validates :publish_tweet_id
   end
 
