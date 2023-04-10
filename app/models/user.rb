@@ -17,7 +17,6 @@ class User < ApplicationRecord
   belongs_to :activity_level
   belongs_to :publish_target
   belongs_to :publish_daily
-  belongs_to :publish_height
   belongs_to :publish_tweet
 
   validates   :year_of_birth, presence: true, format: { with: /\A[0-9]{4}\z/ }

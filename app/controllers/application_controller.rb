@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
       :activity_level_id, 
       :publish_target_id, 
       :publish_daily_id, 
-      :publish_height_id, 
       :publish_tweet_id 
       ])
     end
