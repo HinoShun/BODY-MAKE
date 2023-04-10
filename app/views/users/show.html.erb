@@ -3,7 +3,11 @@
   <div class="intro">
 
     <div class="intro-left">
-      <%= image_tag 'robo.jpeg', class: "user-image" %>
+      <% if @user.image.present? %>
+        <%= image_tag(@user.image, class: "user-image") %>
+      <% else %>
+        <%= image_tag('account.PNG', class: "user-image") %>
+      <% end %>
     </div>
     
     <div class="intro-right">

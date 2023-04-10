@@ -19,7 +19,11 @@
     <div class="header-right">
         <% if user_signed_in? %>
           <div class="login-user-icon">
-            <%= link_to image_tag("robo.jpeg",class: :icon_user), user_path(current_user.id) %>
+            <% if current_user.image.present? %>
+              <%= link_to image_tag(current_user.image,class: :icon_user), user_path(current_user.id) %>
+            <% else %>
+              <%= link_to image_tag('account.PNG',class: :icon_user), user_path(current_user.id) %>
+            <% end %>
           </div>
           <div class="login-user">
             <div class="login-user-text">
