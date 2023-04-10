@@ -55,4 +55,5 @@ test:
 production:
   <<: *default
   adapter: postgresql
+  encoding: utf8
   url: <%= ENV['DATABASE_URL'] %>
