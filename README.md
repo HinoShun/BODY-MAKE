@@ -4,14 +4,14 @@
 BODY-MAKE(！！開発中！！)
 
 ## ※注意※
-現在開発中なので、記載内容は変更されている可能性があります。
+随時開発中なので、記載内容は変更されている可能性があります。
 
 ## アプリケーション概要（課題抽出と解決方法）
 ### 目的
 かっこいい、美しい身体づくりをサポートする、文書、画像の投稿ができるTwitterのようなアプリケーション。  
 既存のサービスであるTwitterやInstagram等は、不特定多数のユーザーが存在しており、  
 身体づくりを楽しむ人たちにとって、意図に反したコメントやダイレクトメールが送られるといったことがある。  
-身体づくりに特化したサービスを提供することで、ユーザーが安心してコミュニケーションをとれることを目的として作成した。
+身体づくりに特化したサービスを提供することで、ユーザーが安心してコミュニケーションをとれること、モチベーション維持の手助けを目的として作成した。
 
 ### ペルソナ
 10代〜40代の、より良い身体を目指す、普段からSNSを活用している男女  
@@ -44,9 +44,12 @@ BODY-MAKE(！！開発中！！)
 ・投稿に対するコメント、いいね機能  
 
 ## 今後追加・改善した機能
+・PFCバランス精度向上  
 ・レスポンシブデザイン化  
+・エラーハンドリング  
 ・スクリプト攻撃対策など、セキュリティの見直し  
 ・可読性の向上  
+・投稿画像のタグ付機能  
 ・お気に入りのユーザー登録機能（フォロー機能）  
 ・おすすめ動画機能  
 ・似た目的のユーザー表示機能  
@@ -54,16 +57,22 @@ BODY-MAKE(！！開発中！！)
 
 
 ## URL
+https://body-make-app.onrender.com/
 
 ## テスト用アカウント等
 ●Basic認証  
-    ・パスワード:   
-    ・ID:   
+    ・パスワード: 0000  
+    ・ID: 0000  
 
-●ユーザー情報  
-    ・ユーザー名    :  
-    ・メールアドレス :  
-    ・パスワード    :  
+●ユーザー情報1  
+    ・ユーザー名    : TestUser1
+    ・メールアドレス : test1@com
+    ・パスワード    : test00
+
+●ユーザー情報2  
+    ・ユーザー名    : TestUser2
+    ・メールアドレス : test2@com
+    ・パスワード    : test00
 
 ## 利用方法
 
@@ -132,8 +141,6 @@ BODY-MAKE(！！開発中！！)
 - has_one_attached :image
 
 
-
-
 ### tweets テーブル
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -147,8 +154,6 @@ BODY-MAKE(！！開発中！！)
 - has_one_attached :image
 
 
-
-
 ### tweet_tag_relations テーブル
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -158,22 +163,6 @@ BODY-MAKE(！！開発中！！)
 #### Association
 - belongs_to :tweet
 - belongs_to :tag
-
-
-
-
-
-### tags テーブル
-| Column | Type       | Options                      |
-| ------ | ---------- | ---------------------------- |
-| tag    | string     | null:false, uniqueness: true |
-
-#### Association
-- has_many :tweet_tag_relations
-- has_many :tweet, through: :tweet_tag_relations
-
-
-
 
 
 ### comments テーブル
@@ -188,16 +177,22 @@ BODY-MAKE(！！開発中！！)
 - belongs_to :tweet
 
 
-
-
-
 ### reactions テーブル
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| push_great | integer    |                                |
 | user       | references | null: false, foreign_key: true |
 | tweet      | references | null: false, foreign_key: true |
 
 #### Association
 - belongs_to :user
 - belongs_to :tweet
+
+
+### tags テーブル(※未実装)
+| Column | Type       | Options                      |
+| ------ | ---------- | ---------------------------- |
+| tag    | string     | null:false, uniqueness: true |
+
+#### Association
+- has_many :tweet_tag_relations
+- has_many :tweet, through: :tweet_tag_relations
