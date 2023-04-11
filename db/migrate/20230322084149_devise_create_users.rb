@@ -18,7 +18,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.integer :activity_level_id,   null: false
       t.integer :publish_target_id,   null: false
       t.integer :publish_daily_id,    null: false
-      t.integer :publish_height_id,   null: false
       t.integer :publish_tweet_id,    null: false
 
 

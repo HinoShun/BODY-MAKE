@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2023_04_09_053730) do
     t.integer "activity_level_id", null: false
     t.integer "publish_target_id", null: false
     t.integer "publish_daily_id", null: false
-    t.integer "publish_height_id", null: false
     t.integer "publish_tweet_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
