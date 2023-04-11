@@ -93,13 +93,13 @@ BODY-MAKE(！！開発中！！)
 | sex_id             | integer | null: false              |
 | purpose_id         | integer | null: false              |
 | target_date        | date    |                          |
-| height             | integer | null: false              |
-| target_weight      | integer |                          |
-| target_fat         | integer |                          |
+| height             | float   | null: false              |
+| target_weight      | float   |                          |
+| target_fat         | float   |                          |
 | activity_level_id  | integer | null: false              |
 | publish_target_id  | integer | null: false              |
 | publish_daily_id   | integer | null: false              |
-| publish_height_id  | integer | null: false              |
+| publish_height_id  | integer |                          |
 | publish_tweet_id   | integer | null: false              |
 
 #### Association
@@ -121,8 +121,8 @@ BODY-MAKE(！！開発中！！)
 | Column    | Type       | Options                        |
 | --------- | ---------- |------------------------------- |
 | input_day | date       | null: false                    |
-| weight    | integer    | null: false                    |
-| fat       | integer    | null: false                    |
+| weight    | float      | null: false                    |
+| fat       | float      | null: false                    |
 | user      | references | null: false, foreign_key: true |
 
 #### Association

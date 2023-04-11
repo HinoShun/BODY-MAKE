@@ -3,15 +3,18 @@ class UsersController < ApplicationController
 
   def show
     @dailies = Daily.where(user_id: params[:id]).order(input_day: "DESC")
-    set_after
-    set_before
-    set_now_weight_fat
-    @age = calculation_age
-    @basal_metabolism = calculation_basal_metabolism
-    @coeff = colculation_coeff
-    @diff_calorie =  diff_calorie
-    @calorie_intake = calculation_calorie_intake
-    @nutrients = calculation_nutrients
+    @latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
+    if @dailies.present?
+      set_after
+      set_before
+      set_now_weight_fat
+      @age = calculation_age
+      @basal_metabolism = calculation_basal_metabolism
+      @coeff = colculation_coeff
+      @diff_calorie =  diff_calorie
+      @calorie_intake = calculation_calorie_intake
+      @nutrients = calculation_nutrients
+    end
   end
 
   def edit
@@ -32,18 +35,19 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :image, 
       :nickname, 
-      :introduction, 
-      :year_of_birth, 
-      :sex_id, 
-      :purpose_id, 
+      :introduction,
       :target_date, 
       :target_weight, 
-      :target_fat, 
+      :target_fat,
+      :year_of_birth,
+      :height,
+      :sex_id, 
+      :purpose_id,
       :activity_level_id, 
       :publish_target_id, 
       :publish_daily_id, 
       :publish_height_id, 
-      :publish_tweet_id,
+      :publish_tweet_id
     )
   end
 
@@ -52,25 +56,30 @@ class UsersController < ApplicationController
   end
 
   def set_now_weight_fat
-    latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
-    @now_date = latest_data[0][:input_day]
-    @now_weight = latest_data[0][:weight]
-    @now_fat = latest_data[0][:fat]
+    if @latest_data.present?
+      @now_date = @latest_data[0][:input_day]
+      @now_weight = @latest_data[0][:weight]
+      @now_fat = @latest_data[0][:fat]
+    end
   end
 
 
   def set_before
-    @dailies.to_a.reverse.each do |daily|
-      if daily.image.present?
-        @after_image = daily
+    if @dailies.present?
+      @dailies.to_a.reverse.each do |daily|
+        if daily.image.present?
+          @after_image = daily
+        end
       end
     end
   end
 
   def set_after
-    @dailies.to_a.each do |daily|
-      if daily.image.present?
-        @before_image = daily
+    if @dailies.present?
+      @dailies.to_a.each do |daily|
+        if daily.image.present?
+          @before_image = daily
+        end
       end
     end
   end
@@ -81,12 +90,13 @@ class UsersController < ApplicationController
   end
 
   def calculation_basal_metabolism
-    latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
-    @weight = latest_data[0][:weight]
-    if @user.sex_id == 2
-      @basal_metabolism = (13.397 * @weight) + (4.799 * @user.height) - (5.677 * @age) + 88.362
-    elsif @user.sex_id == 3
-      @basal_metabolism = (9.247 * @weight) + (3.098 * @user.height) - (4.33 * @age) + 447.593
+    if @latest_data.present?
+      @weight = @latest_data[0][:weight]
+      if @user.sex_id == 2
+        @basal_metabolism = (13.397 * @weight) + (4.799 * @user.height) - (5.677 * @age) + 88.362
+      elsif @user.sex_id == 3
+        @basal_metabolism = (9.247 * @weight) + (3.098 * @user.height) - (4.33 * @age) + 447.593
+      end
     end
   end
 
@@ -111,31 +121,42 @@ class UsersController < ApplicationController
   end
 
   def diff_calorie
-    @calories_burned = @basal_metabolism * @coeff
-    @days = (@user.target_date - Date.current).to_i
-    @diff_weight = (@weight - @user.target_weight)
-    @diff_calorie =  @diff_weight * 7200 / @days
+    if @latest_data.present?
+      @calories_burned = @basal_metabolism * @coeff
+      if @user.target_date?
+        @days = (@user.target_date - Date.current).to_i
+      end
+      if @user.target_weight?
+        @diff_weight = (@weight - @user.target_weight)
+        @diff_calorie =  @diff_weight * 7200 / @days
+      end
+    end
   end
 
   def calculation_calorie_intake #目標摂取カロリー
-    @calorie_intake = @calories_burned - @diff_calorie
-    
+    if @latest_data.present? && @diff_calorie.present?
+      @calorie_intake = @calories_burned - @diff_calorie
+    end
   end
 
   def calculation_nutrients #PFC
-    if @user.purpose_id == 3 #減量
-      @protein_c = @calorie_intake * 0.3
-      @carbo_c = @calorie_intake * 0.6
-      @lipid_c = @calorie_intake * 0.1
-    else
-      @protein_c = @calorie_intake * 0.3
-      @carbo_c = @calorie_intake * 0.5
-      @lipid_c = @calorie_intake * 0.2
-    end
+    if @latest_data.present? && @calorie_intake.present?
 
-    @protein_g = @protein_c / 4
-    @carbo_g = @carbo_c / 4
-    @lipid_g = @lipid_c / 9
+      if @user.purpose_id == 3 #減量
+        @protein_c = @calorie_intake * 0.3
+        @carbo_c = @calorie_intake * 0.6
+        @lipid_c = @calorie_intake * 0.1
+      else
+        @protein_c = @calorie_intake * 0.3
+        @carbo_c = @calorie_intake * 0.5
+        @lipid_c = @calorie_intake * 0.2
+      end
+
+      @protein_g = @protein_c / 4
+      @carbo_g = @carbo_c / 4
+      @lipid_g = @lipid_c / 9
+
+    end
 
   end
 end

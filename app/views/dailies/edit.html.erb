@@ -14,12 +14,12 @@
 
       <div class="field">
         <label class="label-text"></label>
-        <%= f.text_field :weight, placeholder:"体重", class: :input_field %>
+        <%= f.number_field :weight, step: "0.1", placeholder:"体重", class: :input_field %>
       </div>
 
       <div class="field">
         <label class="label-text"></label>
-        <%= f.text_field :fat, placeholder:"体脂肪率", class: :input_field %>
+        <%= f.number_field :fat, step: "0.1",placeholder:"体脂肪率", class: :input_field %>
       </div>
 
       <div class="field">

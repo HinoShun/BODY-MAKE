@@ -12,9 +12,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string  :introduction
       t.integer :purpose_id,          null: false
       t.date    :target_date
-      t.integer :height,              null: false
-      t.integer :target_weight
-      t.integer :target_fat
+      t.float   :height,              null: false
+      t.float   :target_weight
+      t.float   :target_fat
       t.integer :activity_level_id,   null: false
       t.integer :publish_target_id,   null: false
       t.integer :publish_daily_id,    null: false

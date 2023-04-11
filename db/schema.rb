@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 2023_04_09_053730) do
 
   create_table "dailies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.date "input_day", null: false
-    t.integer "weight", null: false
-    t.integer "fat", null: false
+    t.float "weight", null: false
+    t.float "fat", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -79,9 +79,9 @@ ActiveRecord::Schema.define(version: 2023_04_09_053730) do
     t.string "introduction"
     t.integer "purpose_id", null: false
     t.date "target_date"
-    t.integer "height", null: false
-    t.integer "target_weight"
-    t.integer "target_fat"
+    t.float "height", null: false
+    t.float "target_weight"
+    t.float "target_fat"
     t.integer "activity_level_id", null: false
     t.integer "publish_target_id", null: false
     t.integer "publish_daily_id", null: false

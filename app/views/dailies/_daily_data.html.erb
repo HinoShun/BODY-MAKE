@@ -13,7 +13,7 @@
         <div class="body-image-text">
           BEFORE
         </div>
-        <% if @before_image.image.present? %>
+        <% if @before_image.present? %>
           <%= image_tag(@before_image.image, class: :tweet_image) %>
           <div class="body-image-inputday">
             <%= @before_image.input_day %>
@@ -25,7 +25,7 @@
         <div class="body-image-text">
           AFTER
         </div>
-        <% if @after_image.image.present? %>
+        <% if @after_image.present? %>
           <%= image_tag(@after_image.image, class: :tweet_image) %>
           <div class="body-image-inputday">
             <%= @after_image.input_day %>
@@ -47,7 +47,7 @@
             name: "体重",
             data: @dailies.map { |record| record.slice(:input_day, :weight).values }
           }
-          ], min: 0, max: 100 %>
+          ], min: 40, max: 100 %>
       </div>
 
       <div class="chart", id="">
@@ -56,7 +56,7 @@
             name: "体脂肪率",
             data: @dailies.map { |record| record.slice(:input_day, :fat).values }
           }
-        ], min: 0, max: 50 %>
+        ], min: 5, max: 50 %>
       </div>
 
     </div>

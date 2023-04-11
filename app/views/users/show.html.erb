@@ -57,16 +57,29 @@
             ●現在●
           </div>
           <div class="intro-day">
-            <%= @now_date %>
+            <% if @latest_data.present? %>
+              <%= @now_date %>
+            <% else %>
+              未登録
+            <% end %>
           </div>
         </div>
-        
+
         <div class="target-area">
           <div class="intro-bodydata">
-            <%= @now_weight %><span class="unit"> kg</span>
+            <% if @latest_data.present? %>
+              <%= @now_weight.to_f %><span class="unit"> kg</span>
+            <% else %>
+              未登録
+            <% end %>
+
           </div>
           <div class="intro-bodydata">
-            <%= @now_fat %><span class="unit"> %</span>
+            <% if @latest_data.present? %>
+              <%= @now_fat.to_f %><span class="unit"> %</span>
+            <% else %>
+              未登録
+            <% end %>
           </div>
         </div>
       </div>
@@ -89,8 +102,15 @@
 
 </div>
 
-<% if @user.id == current_user.id %>
+<% if @user.id == current_user.id && 
+      @latest_data.present? && 
+      @diff_calorie.present? && 
+      @calorie_intake.present? %>
+
   <%= render 'dailies/calorie_data' %>
 <% end %>
 
-<%= render 'dailies/daily_data' %>
+<% if @latest_data.present? %>
+  <%= render 'dailies/daily_data' %>
+<% end %>
+
