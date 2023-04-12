@@ -1,6 +1,7 @@
 <div class="mypage">
 
   <%= form_with model:@user, id: 'new_post', local: true do |f| %>
+  <%= render "error/error_messages", model:@user %>
 
   <div class="intro">
 

@@ -6,6 +6,7 @@
 
   <div class="form">
     <%= form_with model: @daily, url: dailies_path, id: 'new_post', local: true do |f| %>
+    <%= render "error/error_messages", model:@daily %>
 
       <div class="field">
         <label class="label-text"></label>

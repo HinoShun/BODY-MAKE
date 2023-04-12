@@ -52,6 +52,7 @@
 
   <div class="form">
     <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+      <%= render "error/error_messages", model:@comment %>
 
       <div class="field-comment">
         <label class="label-text"></label>

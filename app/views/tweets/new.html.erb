@@ -6,6 +6,7 @@
 
   <div class="form">
     <%= form_with model: @tweet, url: tweets_path, id: 'new_post', local: true do |f| %>
+    <%= render "error/error_messages", model:@tweet %>
 
       <div class="field">
         <label class="label-text"></label>

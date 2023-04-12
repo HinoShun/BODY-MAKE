@@ -6,7 +6,7 @@
 
   <div class="form">
     <%= form_with model: @daily, url: daily_path(params[:id]), id: 'new_post', local: true do |f| %>
-
+    <%= render "error/error_messages", model:@daily %>
       <div class="field">
         <label class="label-text"></label>
         <%= f.date_field :input_day, placeholder:"日付", class: :input_field %>

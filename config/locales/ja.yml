@@ -1,0 +1,23 @@
+ja:	
+  activerecord:	
+    attributes:	
+      user:	
+        nickname: ユーザー名
+        year_of_birth: 誕生年	
+        height: 身長
+        sex_id: 性別
+        purpose_id: 目的
+        activity_level_id: 活動レベル
+        publish_target_id: 目標体重・体脂肪率
+        publish_daily_id: 日々のデータ
+        publish_height_id: 身長
+        publish_tweet_id: つぶやき
+      tweet:	
+        tweet: つぶやく内容	
+        image: 画像	
+      daily:
+        input_day: 日付
+        weight: 体重
+        fat: 体脂肪率
+      comment:
+        comment: コメント内容
