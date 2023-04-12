@@ -64,7 +64,7 @@
 }
 
 .input-bodydata{
-  width: 50%;
+  width: 80%;
   margin-top: 9px;
   margin-left: 10px;
   text-align: center;
@@ -76,7 +76,7 @@
 }
 
 .input-target-weight-fat{
-  width: 50px;
+  width: 80px;
   text-align: end;
   border: none;
   background-color: #f0eded;
