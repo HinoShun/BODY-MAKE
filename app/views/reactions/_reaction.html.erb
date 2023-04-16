@@ -1,7 +1,12 @@
+<!-- クリックでいいね取り消し -->
 <% if user_signed_in? && tweet.liked_by?(current_user)%>
   <%= link_to image_tag("icon_great.png", class: :icon_reaction), tweet_reactions_path(tweet.id), method: :delete, remote: true %>
+  <!-- いいね数表示 -->
   <%= tweet.reactions.count %>
+
+<!-- クリックでいいね -->
 <% else %>
   <%= link_to image_tag("icon_great_before.png", class: :icon_reaction), tweet_reactions_path(tweet.id), method: :post, remote: true %>
+  <!-- いいね数表示 -->
   <%= tweet.reactions.count %>
 <% end %>
