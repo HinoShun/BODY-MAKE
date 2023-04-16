@@ -4,18 +4,22 @@
       <div class="tweet-user">
         <div class="tweet-user-icon">
 
+          <!-- ユーザー画像表示 -->
           <% if tweet.user.image.present? %>
             <%= link_to image_tag(tweet.user.image,class: :icon_user), user_path(tweet.user.id) %>
+          <!-- ユーザー画像登録がなければデフォルト画像表示 -->
           <% else %>
             <%= link_to image_tag('account.PNG',class: :icon_user), user_path(tweet.user.id) %>
           <% end %>
 
         </div>
         <div class="tweet-user-name">
+          <!-- ユーザー名表示 -->
           <%= link_to tweet.user.nickname, user_path(tweet.user.id),class: :tweet_user_name %>
         </div>
       </div>
 
+      <!-- 投稿者であれば、削除ボタンを表示 -->
       <% if tweet.user == current_user %>
         <div class="tweet-user-menu">
           <%= link_to image_tag("icon_delete2.png", class: :icon_delete), tweet_path(tweet.id),method: :delete %>
@@ -24,25 +28,28 @@
 
     </div>
 
+    <!-- 投稿者した画像があれば表示 -->
     <% if tweet.image.present? %>
-
-    <div class="tweet-image">
-      <%= image_tag(tweet.image,class: :tweet_image) %>
-    </div>
-
+      <div class="tweet-image">
+        <%= image_tag(tweet.image,class: :tweet_image) %>
+      </div>
     <% end %>
 
+    <!-- 投稿内容表示 -->
     <div class="tweet-tweet">
-      <%= tweet.tweet %>
+      <%= safe_join(tweet.tweet.split("\n"),tag(:br)) %>
     </div>
 
     <div class="tweet-bottom">
 
       <div class="reactions-comment">
+        <!-- コメントページへリンク -->
         <%= link_to image_tag("icon_comment.png", class: :icon_reaction),new_tweet_comment_path(tweet.id)  %>
+        <!-- コメント数表示 -->
         <%= tweet.comments.count %>
       </div>
-      <div class="reactions-like", id="reaction-btn<%= tweet.id %>">      
+      <!-- いいね部分の表示（js.erb） -->
+      <div class="reactions-like", id="reaction-btn<%= tweet.id %>">
         <%= render partial: "reactions/reaction", locals: { tweet: tweet } %>
       </div>
 
