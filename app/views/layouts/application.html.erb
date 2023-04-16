@@ -9,18 +9,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!-- ヘッダー部分 -->
   <header>
+    <!-- ヘッダー左部分（ロゴ・タイトル表示） -->
     <div class="header-left">
       <div class="title">
-        <%= link_to image_tag("fitness.PNG", class: :logo), root_path %>
+        <%= link_to image_tag("fitness.PNG", class: :logo), root_path %> 
         <h1 class="title_name">BODY-MAKE APP</h1>
       </div>
     </div>
+    <!-- ヘッダー右部分 -->
     <div class="header-right">
+        <!-- ログイン時　ユーザー画像とユーザー名の表示とリンク -->
         <% if user_signed_in? %>
           <div class="login-user-icon">
             <% if current_user.image.present? %>
               <%= link_to image_tag(current_user.image,class: :icon_user), user_path(current_user.id) %>
+            <!-- ユーザー画像が未設定の場合は、デフォルト画像を表示 -->
             <% else %>
               <%= link_to image_tag('account.PNG',class: :icon_user), user_path(current_user.id) %>
             <% end %>
@@ -31,9 +36,9 @@
             </div>
             <div class="logout">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :logout_text %>
-                  <%#= image_tag 'test.png' ,class: "logo" %>
             </div>
           </div>
+        <!-- ログアウト状態時　新規登録かログインへのリンクを表示 -->
         <% else %>
           <div class="header-right-encourage">
             <p class="encourage">
@@ -47,46 +52,54 @@
   </header>
 
   <body>
+    <!-- TOPページリンク（固定） -->
     <%= link_to(root_path, class: 'root-btn') do %>
       <span class='btn-text'>TOPへ</span>
       <%= image_tag 'fitness.PNG' , size: '185x50' ,class: "btn-icon_" %>
     <% end %>
-
+    <!-- おしらせページリンク（固定） -->
     <%= link_to(pages_news_path, class: 'notice-btn') do %>
       <span class='btn-text'>おしらせ</span>
     <% end %>
-
+    
+    
+    <!-- /各ページ表示 -->
     <div class="main">
       <div class="main_">
         <%= yield %>
       </div>
     </div>
+    <!-- 各ページ表示/ -->
   </body>
 
-  <% if user_signed_in? %>
 
+  <% if user_signed_in? %>
+    <!-- ログイン中　詳細ページリンク（固定） -->
     <%= link_to(user_path(current_user.id), class: 'top-btn') do %>
       <span class='btn-text'>マイページ</span>
       <%= image_tag 'icon_graph.png' , size: '185x50' ,class: "btn-icon_" %>
     <% end %>
 
+    <!-- ログイン中　データ入力ページリンク（固定） -->
     <%= link_to(new_daily_path, class: 'middle-btn') do %>
       <span class='btn-text'>データ入力</span>
       <%= image_tag 'icon_scale.png' , size: '185x50' ,class: "btn-icon_" %>
     <% end %>
 
+    <!-- ログイン中　新規投稿ページリンク（固定） -->
     <%= link_to(new_tweet_path, class: 'bottom-btn') do %>
       <span class='btn-text'>つぶやく</span>
       <%= image_tag 'icon_tweet.png' , size: '185x50' ,class: "btn-icon_" %>
     <% end %>
 
   <% else %>
-
+    <!-- ログアウト時　新規登録ページリンク（固定） -->
     <%= link_to(new_user_registration_path, class: 'middle-btn') do %>
       <span class='btn-text'>新規登録</span>
       <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
     <% end %>
 
+    <!-- ログアウト時　ログインページリンク（固定） -->
     <%= link_to(new_user_session_path, class: 'bottom-btn') do %>
       <span class='btn-text'>ログイン</span>
       <%= image_tag 'btn.png' , size: '185x50' ,class: "btn-icon" %>
@@ -94,6 +107,7 @@
 
   <% end %>
 
+  <!-- フッター（固定） -->
   <footer>
     <div class="footer-area">
       <div class="footer-text">
