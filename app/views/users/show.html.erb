@@ -130,7 +130,7 @@
 
 </div>
 
-<!-- ログインユーザーであり、各データが登録されていれば表示 -->
+<!-- ログインユーザーであり、各データが登録されていれば、基礎代謝などを表示 -->
 <% if @user.id == current_user.id && 
       @latest_data.present? && 
       @diff_calorie.present? && 
@@ -139,7 +139,7 @@
   <%= render 'dailies/calorie_data' %>
 <% end %>
 
-<!-- データが登録されていれば表示 -->
+<!-- データが登録されていれば日々のデータを表示 -->
 <% if @latest_data.present? %>
   <%= render 'dailies/daily_data' %>
 <% end %>

@@ -1,3 +1,6 @@
+<!-- 基礎代謝・消費カロリー・目標摂取カロリー・マクロ栄養素を表示 -->
+<!-- uers/showからrender -->
+
 <div class="calorie-data-main">
 
   <div class="calorie-data-main-wrap">
@@ -6,6 +9,7 @@
       あなたの消費カロリーと摂取カロリー
     </div>
 
+    <!-- 基礎代謝を表示 -->
     <div class="calorie-data-wrap">
       <div class="calorie-data-text">
         基礎代謝
@@ -15,6 +19,7 @@
       </div>
     </div>
 
+    <!-- 消費カロリーを表示 -->
     <div class="calorie-data-wrap">
       <div class="calorie-data-text">
         消費カロリー
@@ -35,6 +40,7 @@
     </div>
     -->
 
+    <!-- 目標摂取カロリーを表示 -->
     <div class="calorie-data-wrap">
       <div class="calorie-data-text">
         目標摂取カロリー
@@ -45,6 +51,7 @@
      
     </div>
 
+    <!-- 目標摂取カロリーが基礎代謝を下回っていれば警告表示 -->
      <% if @calorie_intake < @basal_metabolism %>
         
       <p class="caution">
@@ -54,6 +61,7 @@
       </p>    
     <% end %>
 
+    <!-- マクロ栄養素の提案（要 精度見直し） -->
     <div class ="calorie-data-title">
       マクロ栄養素のご提案
     </div>
