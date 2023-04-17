@@ -1,10 +1,12 @@
 <div class="mypage">
 
+  <!-- 投稿フォーム -->
   <%= form_with model:@user, id: 'new_post', local: true do |f| %>
   <%= render "error/error_messages", model:@user %>
 
   <div class="intro">
 
+    <!-- ユーザー画像の登録 -->
     <div class="intro-left">
       <div class="user-image-register", id = "previews">
       </div>
@@ -14,14 +16,18 @@
     <div class="intro-right">
     
       <div class="intro-right-top">
+        <!-- ユーザー名の登録 -->
         <div class="intro-user-name">
           <%= f.text_field :nickname, placeholder:"例) たろう" %>
         </div>
+
+        <!-- 目的の登録 -->
         <div class="intro-purpose">
           <%= @user.purpose.name %>
         </div>
       </div>
       
+      <!-- 自己紹介の登録 -->
       <div class="intro-right-content">
         <%= f.text_area :introduction, class:"user-input-field", id:"", placeholder:"（255文字まで)", maxlength:"255" %>
       </div>
@@ -31,6 +37,7 @@
           <div class="intro-day-text">
             ●目標●
           </div>
+          <!-- 目標期日の登録 -->
           <div class="input-day">
             <%= f.date_field :target_date, class:"input-date-field", id:"" %>
           </div>
@@ -38,6 +45,7 @@
         <div class="input-target">
           <div class="input-target-bodydata">
             <div class="input-target-bodydata-text">体重</div>
+            <!-- 目標体重の登録 -->
             <div class="input-bodydata">
               <%= f.number_field :target_weight, step: "0.1", class:"input-target-weight-fat", id:"", placeholder:"" %>
               <span class="unit"> kg</span>
@@ -45,6 +53,7 @@
           </div>
           <div class="input-target-bodydata">
             <div class="input-target-bodydata-text">体脂肪率</div>
+            <!-- 目標体脂肪率の登録 -->
             <div class="input-bodydata">
               <%= f.number_field :target_fat, step: "0.1", class:"input-target-weight-fat", id:"", placeholder:"" %>
               <span class="unit"> %</span>
@@ -71,31 +80,37 @@
         BODY-MAKE サポート用データ
       </div>
 
+      <!-- 誕生年の登録 -->
       <div class="field">
         <label class="label-text">誕生年</label>
         <%= f.text_field :year_of_birth, placeholder:"例) 1990  ※西暦4桁入力", class: :input_field %>
       </div>
 
+      <!-- 身長の登録 -->
       <div class="field">
         <label class="label-text">身長</label>
         <%= f.number_field :height, step: "0.1", placeholder:"例) 165", class: :input_field %>
       </div>
 
+      <!-- 性別の登録 -->
       <div class="field">
         <label class="label-text">性別</label>
         <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- 目的（増量・減量・維持）の登録 -->
       <div class="field">
         <label class="label-text">目的</label>
         <%= f.collection_select(:purpose_id, Purpose.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- 活動レベルの登録 -->
       <div class="field">
         <label class="label-text">活動レベル</label>
         <%= f.collection_select(:activity_level_id, ActivityLevel.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- 公開非公開の登録 -->
       <div class="form-title_">
         公開・非公開設定
       </div>
@@ -115,6 +130,7 @@
         <%= f.collection_select(:publish_tweet_id, PublishTweet.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- フォーム内容送信 -->
       <div class="actions">
         <%= f.submit "変更する",class:"action-btn" %>
       </div>
