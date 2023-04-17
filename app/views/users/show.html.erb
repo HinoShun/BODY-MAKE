@@ -3,8 +3,10 @@
   <div class="intro">
 
     <div class="intro-left">
+      <!-- ユーザー登録画像表示 -->
       <% if @user.image.present? %>
         <%= image_tag(@user.image, class: "user-image") %>
+      <!-- 未登録であればデフォルト画像表示 -->
       <% else %>
         <%= image_tag('account.PNG', class: "user-image") %>
       <% end %>
@@ -13,25 +15,28 @@
     <div class="intro-right">
     
       <div class="intro-right-top">
+        <!-- ユーザー名表示 -->
         <div class="intro-user-name">
           <%= @user.nickname %>
         </div>
+        <!-- ユーザー目的表示 -->
         <div class="intro-purpose">
           <%= @user.purpose.name %>
         </div>
       </div>
 
+      <!-- ユーザー自己紹介表示 -->
       <div class="intro-right-content">
         <%= @user.introduction %>
       </div>
 
+      <!-- 目標値・現在値の表示 -->
       <div class="intro-right-target">
         <div class="target-area">
           <div class="intro-day-text">
-            
              ●目標●
-            
           </div>
+          <!-- 公開設定、またはログインユーザーであれば、目標期日を表示 -->
           <div class="intro-day">
           <% if @user.publish_target_id  == 2 || @user.id == current_user.id %>
             <%= @user.target_date %>
@@ -40,6 +45,7 @@
         </div>
 
         <div class="target-area">
+          <!-- 公開設定、またはログインユーザーであれば、目標値を表示 -->
           <% if @user.publish_target_id  == 2 || @user.id == current_user.id %>
           <div class="intro-bodydata">
             <%= @user.target_weight.to_f %>
@@ -49,6 +55,11 @@
             <%= @user.target_fat.to_f %>
             <span class="unit"> %</span>
           </div>
+          <!-- 非公開設定時の表示 -->
+          <% else %>
+            <div class="intro_private">
+              非公開
+            </div>
           <% end %>
         </div>
 
@@ -57,37 +68,54 @@
             ●現在●
           </div>
           <div class="intro-day">
-            <% if @latest_data.present? %>
-              <%= @now_date %>
-            <% else %>
-              未登録
+            <!-- 公開設定、またはログインユーザーであれば、目標期日を表示 -->
+            <% if @user.publish_daily_id  == 2 || @user.id == current_user.id %>
+              <!-- -データが登録されていれば直近のデータを表示 -->
+              <% if @latest_data.present? %>
+                <%= @now_date %>
+              <% else %>
+                未登録
+              <% end %>
             <% end %>
           </div>
         </div>
 
         <div class="target-area">
-          <div class="intro-bodydata">
-            <% if @latest_data.present? %>
-              <%= @now_weight.to_f %><span class="unit"> kg</span>
-            <% else %>
-              未登録
-            <% end %>
+          <!-- 公開設定、またはログインユーザーであれば、目標期日を表示 -->
+          <% if @user.publish_daily_id  == 2 || @user.id == current_user.id %>
+            <div class="intro-bodydata">
+              <!-- -データが登録されていれば直近の体重を表示 -->
+              <% if @latest_data.present? %>
+                <%= @now_weight.to_f %><span class="unit"> kg</span>
+              <% else %>
+                未登録
+              <% end %>
+            </div>
+          <% end %>
 
-          </div>
-          <div class="intro-bodydata">
-            <% if @latest_data.present? %>
-              <%= @now_fat.to_f %><span class="unit"> %</span>
-            <% else %>
-              未登録
-            <% end %>
-          </div>
+          <!-- 公開設定、またはログインユーザーであれば、目標期日を表示 -->
+          <% if @user.publish_daily_id  == 2 || @user.id == current_user.id %>
+            <div class="intro-bodydata">
+              <!-- -データが登録されていれば直近の体脂肪率を表示 -->
+              <% if @latest_data.present? %>
+                <%= @now_fat.to_f %><span class="unit"> %</span>
+              <% else %>
+                未登録
+              <% end %>
+            </div>
+          <!-- 非公開設定時の表示 -->
+          <% else %>
+            <div class="intro_private">
+              非公開
+            </div>
+          <% end %>
+
         </div>
       </div>
 
       <div class="intro-bottom">
 
-        <!-- 自分のページであれば公開・非公開の表示　-->
-
+        <!-- 自分のページであれば編集ボタンを表示　-->
         <% if @user.id == current_user.id %>
           <div class="icon-edit">
             <%= link_to image_tag("icon_edit.png",class: :icon_edit), edit_user_path(current_user.id) %>
@@ -102,6 +130,7 @@
 
 </div>
 
+<!-- ログインユーザーであり、各データが登録されていれば表示 -->
 <% if @user.id == current_user.id && 
       @latest_data.present? && 
       @diff_calorie.present? && 

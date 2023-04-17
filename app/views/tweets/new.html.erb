@@ -4,22 +4,24 @@
 
 <div class="main-center">
 
+  <!-- 投稿フォーム -->
   <div class="form">
     <%= form_with model: @tweet, url: tweets_path, id: 'new_post', local: true do |f| %>
     <%= render "error/error_messages", model:@tweet %>
 
+      <!-- つぶやき内容投稿 -->
       <div class="field">
         <label class="label-text"></label>
         <%= f.text_area :tweet, placeholder:"最大255文字", class: :tweet_input_field %>
       </div>
 
+      <!-- 画像投稿 -->
       <div class="field">
         <div class="user-image-register", id = "previews" ></div>
         <%= f.file_field :image, placeholder: "画像" %>
       </div>
 
-      
-
+      <!-- 投稿ボタン -->
       <div class="actions">
         <%= f.submit "つぶやく",class:"action-btn" %>
       </div>

@@ -95,6 +95,17 @@
   font-size: smaller;
 }
 
+.intro_private{
+  width: 100%;
+  margin-top: 25px;
+  text-align: center;
+  font-weight: bold;
+  border: solid 1px #272525;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 3px 0;
+}
+
 .icon-edit{
   display: flex;
   justify-content: end;
