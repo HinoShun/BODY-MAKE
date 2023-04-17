@@ -11,6 +11,7 @@
   </div>
   
   <div class="daily-data-image">
+    <!-- 画像が登録されていれば表示 -->
     <% if dailies.image.present? %>
       <%= image_tag(dailies.image, class: :daily_data_image) %>
     <% else %>
@@ -18,6 +19,7 @@
     <% end %>
   </div>
 
+  <!-- ログインユーザーのデータであれば、削除・編集ボタンを表示 -->
   <% if dailies.user == current_user %>
     <div class="daily-bottom">
       <div class="daily-bottom-btn">
