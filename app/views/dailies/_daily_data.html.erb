@@ -1,75 +1,81 @@
 <div class="user-data">
   <div class="user-data_">
 
-  <% if @user.publish_target_id  == 2 || @user.id == current_user.id %>
+    <!-- 公開設定、またはログインユーザーであれば、体型変化を表示 -->
+    <% if @user.publish_target_id  == 2 || @user.id == current_user.id %>
     
-    <div class="data-title">
-      体型の変化
-    </div>
+      <div class="data-title">
+        体型の変化
+      </div>
 
-    <div class="body-images", id="">
+      <div class="body-images", id="">
 
-      <div class="body-image">
-        <div class="body-image-text">
-          BEFORE
-        </div>
-        <% if @before_image.present? %>
-          <%= image_tag(@before_image.image, class: :tweet_image) %>
-          <div class="body-image-inputday">
-            <%= @before_image.input_day %>
+        <div class="body-image">
+          <div class="body-image-text">
+            BEFORE
           </div>
-        <% end %>
-      </div>
-
-      <div class="body-image">
-        <div class="body-image-text">
-          AFTER
+          <!-- データが登録されていれば、過去画像を表示 -->
+          <% if @before_image.present? %>
+            <%= image_tag(@before_image.image, class: :tweet_image) %>
+            <div class="body-image-inputday">
+              <%= @before_image.input_day %>
+            </div>
+          <% end %>
         </div>
-        <% if @after_image.present? %>
-          <%= image_tag(@after_image.image, class: :tweet_image) %>
-          <div class="body-image-inputday">
-            <%= @after_image.input_day %>
+
+        <div class="body-image">
+          <div class="body-image-text">
+            AFTER
           </div>
-        <% end %>
+          <!-- データが登録されていれば、直近の画像を表示 -->
+          <% if @after_image.present? %>
+            <%= image_tag(@after_image.image, class: :tweet_image) %>
+            <div class="body-image-inputday">
+              <%= @after_image.input_day %>
+            </div>
+          <% end %>
+        </div>
+
       </div>
 
-    </div>
-
-    <div class="data-title">
-      体重・体脂肪率推移
-    </div>
-
-    <div class="charts">
-
-      <div class="chart", id="">
-        <%= line_chart [
-          { 
-            name: "体重",
-            data: @dailies.map { |record| record.slice(:input_day, :weight).values }
-          }
-          ], min: 40, max: 100 %>
+      <div class="data-title">
+        体重・体脂肪率推移
       </div>
 
-      <div class="chart", id="">
-        <%= line_chart [
-          { 
-            name: "体脂肪率",
-            data: @dailies.map { |record| record.slice(:input_day, :fat).values }
-          }
-        ], min: 5, max: 50 %>
+      <div class="charts">
+
+        <!-- 体重の推移をグラフ表示 -->
+        <div class="chart", id="">
+          <%= line_chart [
+            { 
+              name: "体重",
+              data: @dailies.map { |record| record.slice(:input_day, :weight).values }
+            }
+            ], min: 40, max: 100 %>
+        </div>
+
+        <!-- 体脂肪率の推移をグラフ表示 -->
+        <div class="chart", id="">
+          <%= line_chart [
+            { 
+              name: "体脂肪率",
+              data: @dailies.map { |record| record.slice(:input_day, :fat).values }
+            }
+          ], min: 5, max: 50 %>
+        </div>
+
       </div>
 
-    </div>
+      <div class="data-title">
+        記録
+      </div>
 
-    <div class="data-title">
-      記録
-    </div>
+      <!-- 日々のデータを表示 -->
+      <div class="daily-data-wrapper">
 
-    <div class="daily-data-wrapper">
-
-      <%= render partial: "dailies/dailies", collection: @dailies %>
+        <%= render partial: "dailies/dailies", collection: @dailies %>
     
-    </div>
+      </div>
 
     <% end %>
 

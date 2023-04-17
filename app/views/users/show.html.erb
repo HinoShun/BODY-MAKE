@@ -139,6 +139,7 @@
   <%= render 'dailies/calorie_data' %>
 <% end %>
 
+<!-- データが登録されていれば表示 -->
 <% if @latest_data.present? %>
   <%= render 'dailies/daily_data' %>
 <% end %>
