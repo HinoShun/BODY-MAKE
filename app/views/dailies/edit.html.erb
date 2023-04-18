@@ -4,31 +4,36 @@
 
 <div class="main-center">
 
+  <!-- 投稿フォーム -->
   <div class="form">
     <%= form_with model: @daily, url: daily_path(params[:id]), id: 'new_post', local: true do |f| %>
     <%= render "error/error_messages", model:@daily %>
+
+      <!-- 日付の選択 -->
       <div class="field">
         <label class="label-text"></label>
         <%= f.date_field :input_day, placeholder:"日付", class: :input_field %>
       </div>
 
+      <!-- 体重の登録 -->
       <div class="field">
         <label class="label-text"></label>
         <%= f.number_field :weight, step: "0.1", placeholder:"体重", class: :input_field %>
       </div>
 
+      <!-- 体脂肪率の登録 -->
       <div class="field">
         <label class="label-text"></label>
         <%= f.number_field :fat, step: "0.1",placeholder:"体脂肪率", class: :input_field %>
       </div>
 
+      <!-- 画像の登録 -->
       <div class="field">
         <div class="user-image-register", id = "previews" ></div>
         <%= f.file_field :image, placeholder: "画像" %>
       </div>
-
       
-
+      <!--登録ボタン -->
       <div class="actions">
         <%= f.submit "編集",class:"action-btn" %>
       </div>

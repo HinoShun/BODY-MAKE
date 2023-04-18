@@ -4,16 +4,16 @@ class UsersController < ApplicationController
   def show
     @dailies = Daily.where(user_id: params[:id]).order(input_day: "DESC")
     @latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
-    if @dailies.present?
-      set_after
-      set_before
-      set_now_weight_fat
-      @age = calculation_age
-      @basal_metabolism = calculation_basal_metabolism
-      @coeff = colculation_coeff
-      @diff_calorie =  diff_calorie
-      @calorie_intake = calculation_calorie_intake
-      @nutrients = calculation_nutrients
+    if @dailies.present? #dailiesテーブルにデータが登録されていれば実行
+      set_after #一番新しい画像データの取得
+      set_before #一番古い画像データの取得
+      set_now_weight_fat #現在の体重データを取得
+      @age = calculation_age #誕生年より年齢を算出
+      @basal_metabolism = calculation_basal_metabolism #基礎代謝を算出
+      @coeff = colculation_coeff #活動レベル・年齢・性別による消費カロリー係数を算出
+      @diff_calorie =  diff_calorie #1日消費カロリーの算出
+      @calorie_intake = calculation_calorie_intake #1日の目標摂取カロリーを算出
+      @nutrients = calculation_nutrients #栄養素の算出
     end
   end
 

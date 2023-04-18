@@ -4,6 +4,7 @@
 
 <div class="main-center">
 
+  <!-- 投稿フォーム -->
   <div class="form">
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -12,21 +13,25 @@
         ユーザーログイン情報
       </div>
 
+      <!-- ユーザー名の登録 -->
       <div class="field">
         <label class="label-text">ユーザー名</label>
         <%= f.text_field :nickname, placeholder:"例) たろう", class: :input_field %>
       </div>
 
+      <!-- メールアドレスの登録 -->
       <div class="field">
         <label class="label-text">メールアドレス</label>
         <%= f.email_field :email, placeholder:"※メールが配信されることはありません", class: :input_field, autofocus: true, autocomplete: "email" %>
       </div>
 
+      <!-- パスワードの登録 -->
       <div class="field">
         <label class="label-text">パスワード</label>
         <%= f.password_field :password, placeholder:"6文字以上英数字", class: :input_field, autocomplete: "new-password" %>
       </div>
 
+      <!-- パスワード再入力 -->
       <div class="field">
         <label class="label-text">パスワード（確認）</label>
         <%= f.password_field :password_confirmation, placeholder:"同じパスワードを入力してください", class: :input_field, autocomplete: "new-password" %>
@@ -36,11 +41,13 @@
         BODY-MAKE サポート用データ
       </div>
 
+      <!-- 誕生年の登録 -->
       <div class="field">
         <label class="label-text">誕生年</label>
         <%= f.text_field :year_of_birth, placeholder:"例) 1990  ※西暦4桁入力", class: :input_field %>
       </div>
 
+      <!-- 身長の登録 -->
       <div class="field">
         <label class="label-text">身長</label>
         <%= f.number_field :height, step: "0.1", placeholder:"例) 165", class: :input_field %>
@@ -51,35 +58,42 @@
         <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- 目的の登録 -->
       <div class="field">
         <label class="label-text">目的</label>
         <%= f.collection_select(:purpose_id, Purpose.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- 活動レベルの登録 -->
       <div class="field">
         <label class="label-text">活動レベル</label>
         <%= f.collection_select(:activity_level_id, ActivityLevel.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- 公開・非公開の設定 -->
       <div class="form-title_">
         公開・非公開設定
       </div>
 
+      <!-- 目標体重・体脂肪率の公開設定 -->
       <div class="field">
         <label class="label-text">目標体重・体脂肪率</label>
         <%= f.collection_select(:publish_target_id, PublishTarget.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!-- デイリーデータの公開設定 -->
       <div class="field">
         <label class="label-text">日々のデータ（体型変化・体組成推移）</label>
         <%= f.collection_select(:publish_daily_id, PublishDaily.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!--つぶやきの公開設定※現在未使用 -->
       <div class="field">
         <label class="label-text">つぶやき</label>
         <%= f.collection_select(:publish_tweet_id, PublishTweet.all, :id, :name, {}, {class:"select"}) %>
       </div>
 
+      <!--登録ボタン -->
       <div class="actions">
         <%= f.submit "新規登録",class:"action-btn" %>
       </div>
