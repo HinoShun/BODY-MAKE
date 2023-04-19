@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user,            only: [:show, :edit, :update]
 
   def show
+    tweets_count = Tweet.where(user_id: params[:id]).count #つぶやいた数を取得
+    reactions_count = Reaction.where(user_id: params[:id]).count #いいねした数を取得
+    @user_point = tweets_count + reactions_count
     @dailies = Daily.where(user_id: params[:id]).order(input_day: "DESC")
     @latest_data = Daily.where(user_id: params[:id]).order(input_day: "DESC").limit(1)
     if @dailies.present? #dailiesテーブルにデータが登録されていれば実行

@@ -133,6 +133,10 @@
   font-weight: bold;
 }
 
+.user-point{
+  font-size: 14px;
+}
+
 /** calorie-data　装飾 **/
 .calorie-data-main{
   display: flex;

@@ -18,6 +18,9 @@
         <!-- ユーザー名表示 -->
         <div class="intro-user-name">
           <%= @user.nickname %>
+
+          <!-- ツイート数・いいね数の表示 -->
+          <span class="user-point">point：<%= @user_point %>　試験的に表示中</span>
         </div>
         <!-- ユーザー目的表示 -->
         <div class="intro-purpose">
