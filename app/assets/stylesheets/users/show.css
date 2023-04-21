@@ -159,13 +159,13 @@
 }
 
 .calorie-data-wrap_macro{
+  width: 50%;
   display: flex;
   justify-content: space-between;
 }
 
 .calorie-data{
   display: flex;
-  justify-content: end;
   margin-left: 5px;
 }
 
